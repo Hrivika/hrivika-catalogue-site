@@ -1,0 +1,663 @@
+<!-- wp:html -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --navy:#0B2F6D; --navy-deep:#081F49; --blue:#163F85; --blue-soft:#2C55A4;
+  --gold:#C89A3D; --gold-deep:#A87722; --gold-hi:#E3C077; --gold-wash:rgba(200,154,61,.12);
+  --text:#2E3542; --gray:#6B7280; --pale:#EEF3FA; --bg:#F8F9FC;
+  --border:#E5E7EB; --white:#FFFFFF; --wa:#25D366; --wa-deep:#1DA851;
+  --ink:#C7D3EC; --ink-dim:#A9B8DA; --line:rgba(255,255,255,.12);
+  --head:"Plus Jakarta Sans",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,sans-serif;
+  --r-card:22px; --r-pill:100px;
+  --shadow:0 16px 40px -18px rgba(11,47,109,.16);
+  --shadow-lift:0 26px 56px -22px rgba(11,47,109,.3);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+.hvcx *{box-sizing:border-box}
+.hvcx{margin:0;font-family:var(--body);font-size:16px;line-height:1.6;color:var(--text);background:var(--navy-deep);-webkit-font-smoothing:antialiased}
+.hvcx img{max-width:100%;display:block}
+.hvcx a{color:inherit;text-decoration:none}
+.hvcx button{font-family:var(--body)}
+.hvcx h1,.hvcx h2,.hvcx h3,.hvcx h4{font-family:var(--head);color:var(--navy);margin:0;line-height:1.15}
+.hvcx .wrap{max-width:1260px;margin:0 auto;padding:0 24px}
+
+/* ============ TOP BAR ============ */
+.hvcx .topbar{background:var(--navy-deep);color:#C7D3EC;font-size:.78rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.hvcx .topbar-in{display:flex;justify-content:space-between;gap:16px;padding:7px 0}
+.hvcx .topbar b{color:var(--gold-hi);font-weight:600}
+.hvcx .topbar .r{display:flex;gap:18px}
+
+/* ============ HEADER ============ */
+.hvcx .hdr{background:#fff;position:sticky;top:0;z-index:70;border-bottom:2px solid var(--gold)}
+.hvcx .hdr-in{display:flex;align-items:center;gap:18px;padding:12px 0}
+.hvcx .logo{flex:none}
+.hvcx .logo img{height:52px;width:auto}
+.hvcx .logo-fb{display:none;font-family:var(--head);font-weight:800;font-size:1.1rem;color:var(--navy)}
+.hvcx .logo-fb b{color:var(--gold)}
+.hvcx .nav{display:flex;gap:2px;margin-left:8px}
+.hvcx .nav a{position:relative;white-space:nowrap;padding:10px 13px;font-weight:600;font-size:.92rem;color:var(--text);transition:color .2s}
+.hvcx .nav a:hover{color:var(--gold-deep)}
+.hvcx .nav a.on{color:var(--navy)}
+.hvcx .nav a.on::after{content:"";position:absolute;left:13px;right:13px;bottom:2px;height:2.5px;border-radius:2px;background:var(--gold-deep)}
+.hvcx .hact{display:flex;align-items:center;gap:10px;margin-left:auto}
+.hvcx .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:.94rem;
+  border-radius:var(--r-pill);padding:13px 26px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s}
+.hvcx .btn-gold{background:var(--gold-deep);color:#fff}
+.hvcx .btn-gold:hover{background:#96691C;transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(168,119,34,.55)}
+.hvcx .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.hvcx .btn-ghost:hover{border-color:#fff;transform:translateY(-2px)}
+.hvcx .btn-wa{background:var(--wa);color:#fff}
+.hvcx .btn-wa:hover{background:var(--wa-deep);transform:translateY(-2px)}
+.hvcx .btn-white{background:#fff;color:var(--navy)}
+.hvcx .btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(4,12,30,.4)}
+.hvcx .hdr .btn{padding:11px 22px;font-size:.9rem}
+.hvcx .menu-btn{display:none;border:1.5px solid var(--border);background:#fff;border-radius:12px;width:42px;height:42px;cursor:pointer;flex:none;align-items:center;justify-content:center}
+.hvcx .menu-btn svg{width:22px;height:22px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round}
+
+/* mobile nav panel */
+.hvcx .mnav{position:fixed;top:0;left:-360px;width:min(340px,88vw);height:100%;background:#fff;z-index:96;display:flex;flex-direction:column;box-shadow:24px 0 60px -20px rgba(4,12,30,.4);transition:left .35s var(--ease)}
+.hvcx .mnav.on{left:0}
+.hvcx .mnav-h{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--navy);color:#fff}
+.hvcx .mnav-h b{font-family:var(--head);font-size:1rem;font-weight:700}
+.hvcx .mnav-x{background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;line-height:1;padding:4px}
+.hvcx .mnav-list{flex:1;overflow-y:auto;padding:8px 0}
+.hvcx .mnav-list a{display:block;padding:14px 22px;font-family:var(--head);font-weight:700;font-size:.98rem;color:var(--navy);border-bottom:1px solid var(--bg)}
+.hvcx .mnav-list a.on{color:var(--gold-deep);background:var(--gold-wash);box-shadow:inset 3px 0 0 var(--gold-deep)}
+.hvcx .mnav-f{padding:14px 18px;border-top:1px solid var(--border)}
+.hvcx .mnav-f .btn{width:100%}
+.hvcx .mnav-f small{display:block;text-align:center;margin-top:10px;font-size:.74rem;color:var(--gray)}
+.hvcx .scrim{position:fixed;inset:0;background:rgba(8,18,40,.5);z-index:90;opacity:0;pointer-events:none;transition:opacity .3s}
+.hvcx .scrim.on{opacity:1;pointer-events:auto}
+
+/* ============ LEGACY HERO — where the thread begins ============ */
+.hvcx .legacy{position:relative;isolation:isolate;overflow:hidden;color:#fff;text-align:center;
+  background:radial-gradient(1000px 620px at 50% -10%,#12377A 0%,var(--navy) 48%,var(--navy-deep) 100%)}
+.hvcx .legacy::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:20px 20px;opacity:.5}
+.hvcx .legacy::after{content:"";position:absolute;top:-260px;left:50%;transform:translateX(-50%);width:760px;height:760px;border-radius:50%;z-index:-1;
+  background:radial-gradient(circle,rgba(200,154,61,.22) 0%,transparent 62%)}
+.hvcx .legacy-in{max-width:860px;margin:0 auto;padding:84px 0 0}
+.hvcx .kick{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:18px}
+.hvcx .kick::before,.hvcx .kick::after{content:"";width:30px;height:2px;background:var(--gold)}
+.hvcx .legacy h1{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.018em;line-height:1.07}
+.hvcx .legacy h1 b{color:var(--gold-hi)}
+.hvcx .legacy .lede{color:var(--ink);margin:20px auto 30px;max-width:64ch;font-size:1.03rem}
+.hvcx .legacy .lede b{color:#fff;font-weight:600}
+.hvcx .l-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+/* lineage chips: parent house → export arm */
+.hvcx .lineage{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:36px;flex-wrap:wrap}
+.hvcx .ln-card{padding:11px 20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.045);text-align:left}
+.hvcx .ln-card b{display:block;font-family:var(--head);font-weight:700;font-size:.92rem;color:#fff;line-height:1.3}
+.hvcx .ln-card span{font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#8FA3CC}
+.hvcx .ln-arrow{position:relative;width:46px;height:2px;flex:none;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi));box-shadow:0 0 12px rgba(227,192,119,.55)}
+.hvcx .ln-arrow::after{content:"";position:absolute;right:-1px;top:-3.5px;border-left:8px solid var(--gold-hi);border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
+
+/* the glowing gold thread dropping out of the hero */
+.hvcx .thread{position:relative;width:2px;height:120px;margin:40px auto 0;
+  background:linear-gradient(180deg,rgba(227,192,119,0) 0%,var(--gold-hi) 60%,var(--gold) 100%);
+  box-shadow:0 0 14px rgba(227,192,119,.5)}
+.hvcx .thread::after{content:"";position:absolute;left:50%;top:0;width:8px;height:8px;margin-left:-4px;border-radius:50%;
+  background:var(--gold-hi);box-shadow:0 0 16px 4px rgba(227,192,119,.75);animation:drop 2.8s ease-in infinite}
+@keyframes drop{0%{top:0;opacity:0}18%{opacity:1}82%{opacity:1}100%{top:calc(100% - 8px);opacity:0}}
+
+/* ============ DARK BANDS ============ */
+.hvcx .band{position:relative;isolation:isolate;padding:78px 0;overflow:hidden}
+.hvcx .band.era{background:linear-gradient(180deg,var(--navy-deep) 0%,#0A2757 100%);padding-top:64px}
+.hvcx .band.wall{background:#071B40}
+.hvcx .band.vm{background:linear-gradient(180deg,#0A2757 0%,var(--navy-deep) 100%)}
+.hvcx .band::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px;opacity:.6}
+.hvcx .band-head{text-align:center;max-width:680px;margin:0 auto 48px}
+.hvcx .k-eyebrow{font-family:var(--head);font-weight:700;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
+.hvcx .band-head h2{color:#fff;font-size:clamp(1.55rem,3.1vw,2.3rem);font-weight:800;letter-spacing:-.012em;margin:9px 0 12px}
+.hvcx .band-head h2 b{color:var(--gold-hi)}
+.hvcx .band-head p{color:var(--ink-dim);margin:0}
+
+/* ============ THE LEGACY LINE — vertical timeline ============ */
+.hvcx .tl{position:relative;max-width:1020px;margin:0 auto;padding:8px 0 4px}
+.hvcx .tl::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;
+  background:linear-gradient(180deg,rgba(227,192,119,0) 0%,var(--gold) 6%,var(--gold-hi) 50%,var(--gold) 94%,rgba(227,192,119,0) 100%);
+  box-shadow:0 0 16px rgba(227,192,119,.4)}
+.hvcx .tl::after{content:"";position:absolute;left:50%;top:0;width:10px;height:10px;margin-left:-5px;border-radius:50%;z-index:1;
+  background:var(--gold-hi);box-shadow:0 0 18px 5px rgba(227,192,119,.7);animation:flow 6.5s linear infinite}
+@keyframes flow{0%{top:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:calc(100% - 10px);opacity:0}}
+.hvcx .tli{position:relative;display:grid;grid-template-columns:1fr 120px 1fr;align-items:center;margin-bottom:64px}
+.hvcx .tli:last-child{margin-bottom:0}
+.hvcx .tl-node{grid-column:2;grid-row:1;justify-self:center;position:relative;width:18px;height:18px;border-radius:50%;
+  background:#fff;border:4px solid var(--gold);box-shadow:0 0 18px rgba(227,192,119,.8);z-index:2}
+.hvcx .tl-node::before{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--gold-hi);
+  animation:npulse 2.8s ease-out infinite}
+@keyframes npulse{0%{transform:scale(.6);opacity:.9}80%{transform:scale(2.6);opacity:0}100%{transform:scale(2.6);opacity:0}}
+.hvcx .tl-card{position:relative;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:24px;padding:26px 28px 24px;
+  transition:transform .28s var(--ease),background .28s var(--ease),border-color .28s var(--ease)}
+.hvcx .tl-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.07);border-color:rgba(227,192,119,.4)}
+.hvcx .tl-card::after{content:"";position:absolute;top:50%;width:40px;border-top:2px dashed rgba(200,154,61,.5)}
+.hvcx .tl-meta{display:block;font-family:var(--head);font-weight:700;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:9px}
+.hvcx .tl-card h3{color:#fff;font-size:1.16rem;font-weight:700;margin-bottom:8px}
+.hvcx .tl-card p{margin:0;font-size:.89rem;color:var(--ink-dim)}
+.hvcx .tl-card p b{color:var(--ink);font-weight:600}
+.hvcx .tl-num{grid-row:1;font-family:var(--head);font-weight:800;font-size:clamp(3.6rem,7vw,5.4rem);line-height:1;letter-spacing:-.02em;
+  background:linear-gradient(180deg,rgba(227,192,119,.55) 0%,rgba(227,192,119,.07) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;pointer-events:none}
+/* alternating sides on desktop */
+.hvcx .tli:nth-child(odd) .tl-card{grid-column:1;grid-row:1}
+.hvcx .tli:nth-child(odd) .tl-card::after{right:-44px}
+.hvcx .tli:nth-child(odd) .tl-num{grid-column:3;justify-self:start;padding-left:14px}
+.hvcx .tli:nth-child(even) .tl-card{grid-column:3;grid-row:1}
+.hvcx .tli:nth-child(even) .tl-card::after{left:-44px}
+.hvcx .tli:nth-child(even) .tl-num{grid-column:1;justify-self:end;padding-right:14px}
+/* catalogue chips inside era 04 */
+.hvcx .tl-chips{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;align-items:center}
+.hvcx .tl-chip{width:56px;height:56px;flex:none;border-radius:14px;background:var(--pale);border:1px solid rgba(255,255,255,.16);
+  display:flex;align-items:center;justify-content:center;padding:7px}
+.hvcx .tl-chip img{mix-blend-mode:multiply;max-height:100%;width:auto}
+.hvcx .tl-chip.more{width:auto;padding:0 14px;background:var(--gold-wash);border-color:rgba(200,154,61,.4);
+  font-family:var(--head);font-weight:700;font-size:.78rem;color:var(--gold-hi)}
+.hvcx .tl-go{display:inline-block;margin-top:14px;font-weight:600;font-size:.85rem;color:var(--gold-hi)}
+.hvcx .tl-go:hover{color:#fff}
+
+/* ============ THE LETTER — light editorial interlude ============ */
+.hvcx .letter-sec{position:relative;isolation:isolate;background:var(--bg);overflow:hidden}
+.hvcx .letter-sec::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(11,47,109,.05) 1px,transparent 1px);background-size:19px 19px}
+.hvcx .bword{position:absolute;top:104px;left:0;right:0;overflow:hidden;pointer-events:none;user-select:none;z-index:-1}
+.hvcx .bword span{font-family:var(--head);font-weight:800;font-size:clamp(3.6rem,10vw,8.4rem);letter-spacing:-.02em;line-height:1;color:rgba(11,47,109,.05);white-space:nowrap;display:block;text-align:center}
+/* the golden thread crossing into (and back out of) the light */
+.hvcx .thread-l{position:relative;width:2px;margin:0 auto}
+.hvcx .thread-l::after{content:"";position:absolute;left:50%;top:0;width:8px;height:8px;margin-left:-4px;border-radius:50%;
+  background:var(--gold-deep);box-shadow:0 0 10px 2px rgba(200,154,61,.55);animation:drop 2.8s ease-in infinite}
+.hvcx .thread-l.in{height:76px;margin-bottom:30px;background:linear-gradient(180deg,var(--gold-hi),var(--gold-deep))}
+.hvcx .thread-l.out{height:76px;margin-top:46px;background:linear-gradient(180deg,var(--gold-deep),var(--gold))}
+.hvcx .lite-head{text-align:center;max-width:680px;margin:0 auto 40px}
+.hvcx .lite-head .k-eyebrow{color:var(--gold-deep)}
+.hvcx .lite-head h2{color:var(--navy);font-size:clamp(1.55rem,3.1vw,2.3rem);font-weight:800;letter-spacing:-.012em;margin:9px 0 12px}
+.hvcx .lite-head h2 b{color:var(--gold-deep)}
+.hvcx .lite-head p{color:var(--gray);margin:0}
+.hvcx .sheet{position:relative;max-width:840px;margin:0 auto}
+.hvcx .sheet::before{content:"";position:absolute;inset:14px -14px -14px 14px;background:var(--gold-wash);border-radius:30px;z-index:-1;transform:rotate(.6deg)}
+.hvcx .paper{background:#fff;border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow-lift);padding:60px 72px 54px;overflow:hidden}
+.hvcx .paper::before{content:"";display:block;height:4px;margin:-60px -72px 52px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi) 55%,var(--gold))}
+.hvcx .lhead{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.hvcx .lhead .mark{display:flex;align-items:center;gap:12px}
+.hvcx .lhead .lmono{width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:6px;flex:none}
+.hvcx .lhead .lmono img{width:100%;height:100%;object-fit:contain}
+.hvcx .lhead .mark b{display:block;font-family:var(--head);font-weight:800;font-size:.98rem;color:var(--navy);line-height:1.2}
+.hvcx .lhead .mark span{display:block;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.hvcx .lhead .place{font-family:var(--head);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);text-align:right}
+.hvcx .lrule{height:2px;background:linear-gradient(90deg,var(--gold),rgba(200,154,61,.12));margin:20px 0 34px}
+.hvcx .salut{font-family:var(--head);font-weight:700;font-size:1.16rem;color:var(--navy);margin:0 0 22px}
+.hvcx .letter p{margin:0 0 22px;font-size:1.05rem;line-height:1.85;color:var(--text)}
+.hvcx .letter p b{color:var(--navy);font-weight:600}
+.hvcx .letter p a{color:var(--gold-deep);font-weight:600;border-bottom:1.5px solid rgba(200,154,61,.45);transition:color .2s,border-color .2s}
+.hvcx .letter p a:hover{color:var(--navy);border-color:var(--navy)}
+.hvcx .lp-first::first-letter{float:left;font-family:var(--head);font-weight:800;font-size:4.05em;line-height:.8;color:var(--gold-deep);padding:8px 14px 0 0}
+.hvcx .pull{margin:30px 0;padding:6px 0 6px 24px;border-left:3px solid var(--gold);font-family:var(--body);font-style:italic;font-weight:500;font-size:1.22rem;line-height:1.6;color:var(--navy)}
+.hvcx .closing{font-family:var(--head);font-weight:700;color:var(--navy);font-size:1.02rem;margin:30px 0 0}
+/* signature block — the three names on the door */
+.hvcx .sigs{margin-top:34px;padding-top:34px;border-top:1px solid var(--border)}
+.hvcx .sigs .for{font-family:var(--head);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin:0 0 20px}
+.hvcx .sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hvcx .sig{display:flex;align-items:center;gap:14px}
+.hvcx .sig .av{width:56px;height:56px;border-radius:50%;flex:none;background:linear-gradient(155deg,var(--navy),var(--navy-deep));border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-weight:800;font-size:1.02rem;color:var(--gold-hi);letter-spacing:.03em}
+.hvcx .sig b{display:block;font-family:var(--head);font-weight:800;font-size:1rem;color:var(--navy);line-height:1.25}
+.hvcx .sig .role{display:block;font-family:var(--head);font-weight:700;font-size:.64rem;letter-spacing:.17em;text-transform:uppercase;color:var(--gold-deep);margin-top:2px}
+.hvcx .sig .li{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 13px;border-radius:var(--r-pill);
+  border:1px solid rgba(200,154,61,.45);font-weight:600;font-size:.74rem;color:var(--gold-deep);transition:border-color .2s,color .2s}
+.hvcx .sig .li:hover{border-color:var(--navy);color:var(--navy)}
+.hvcx .sig .li svg{width:13px;height:13px;fill:currentColor;flex:none}
+/* lead-in variant — plain signed names, the pills live in the directors section below */
+.hvcx .signames{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px}
+.hvcx .signame{font-family:var(--head);font-weight:800;font-size:1.08rem;color:var(--navy);letter-spacing:-.01em}
+.hvcx .sigdot{color:var(--gold);font-weight:800}
+.hvcx .sig-meet{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-weight:600;font-size:.86rem;color:var(--gold-deep);border-bottom:1.5px solid rgba(200,154,61,.45);padding-bottom:2px;transition:color .2s,border-color .2s}
+.hvcx .sig-meet:hover{color:var(--navy);border-color:var(--navy)}
+
+/* ============ THE DIRECTORS — the desk behind the trade ============ */
+.hvcx .band.dirs{padding:0;background:linear-gradient(180deg,#0C3170 0%,var(--navy-deep) 52%,#071B40 100%)}
+.hvcx .band.dirs::after{content:"";position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:880px;height:560px;border-radius:50%;z-index:-1;
+  background:radial-gradient(circle,rgba(200,154,61,.16) 0%,transparent 64%)}
+/* the golden thread entering from the letter and passing on to the numbers wall */
+.hvcx .dthread{position:relative;width:2px;height:96px;margin:0 auto 44px;
+  background:linear-gradient(180deg,var(--gold),var(--gold-hi));box-shadow:0 0 14px rgba(227,192,119,.45)}
+.hvcx .dthread::after{content:"";position:absolute;left:50%;top:0;width:8px;height:8px;margin-left:-4px;border-radius:50%;
+  background:var(--gold-hi);box-shadow:0 0 16px 4px rgba(227,192,119,.75);animation:drop 2.8s ease-in infinite}
+.hvcx .dthread.out{margin:52px auto 0;background:linear-gradient(180deg,var(--gold-hi),var(--gold))}
+.hvcx .dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1020px;margin:0 auto}
+.hvcx .dir-card{position:relative;text-align:center;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:26px;padding:46px 26px 38px;
+  transition:transform .28s var(--ease),border-color .28s var(--ease),background .28s var(--ease)}
+.hvcx .dir-card::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:3px;border-radius:0 0 4px 4px;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi),var(--gold-deep))}
+.hvcx .dir-card:hover{transform:translateY(-6px);border-color:rgba(227,192,119,.45);background:rgba(255,255,255,.07)}
+.hvcx .dir-mono{position:relative;width:112px;height:112px;margin:0 auto 24px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--head);font-weight:800;font-size:1.9rem;letter-spacing:.04em;color:var(--gold-hi);
+  background:linear-gradient(155deg,#0C3170 0%,var(--navy-deep) 72%);border:2.5px solid var(--gold);
+  box-shadow:0 0 0 8px rgba(200,154,61,.1),0 0 36px rgba(227,192,119,.3),inset 0 0 24px rgba(200,154,61,.14)}
+.hvcx .dir-mono::after{content:"";position:absolute;inset:-13px;border-radius:50%;border:1px solid rgba(227,192,119,.3)}
+.hvcx .dir-eyebrow{display:block;font-family:var(--head);font-weight:700;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:7px}
+.hvcx .dir-card h3{color:#fff;font-size:1.5rem;font-weight:800;letter-spacing:-.014em}
+.hvcx .dir-bio{color:#C7D3EC;font-size:.9rem;line-height:1.75;margin:12px 0 0;text-align:left}
+.hvcx .dir-li{display:inline-flex;align-items:center;gap:7px;margin-top:18px;padding:8px 20px;border-radius:var(--r-pill);
+  border:1.5px solid rgba(200,154,61,.5);background:rgba(200,154,61,.08);
+  font-family:var(--head);font-weight:700;font-size:.8rem;color:var(--gold-hi);
+  transition:border-color .2s,color .2s,background .2s,transform .25s var(--ease)}
+.hvcx .dir-li:hover{border-color:var(--gold-hi);color:#fff;background:rgba(200,154,61,.16);transform:translateY(-2px)}
+.hvcx .dir-li svg{width:14px;height:14px;fill:currentColor;flex:none}
+.hvcx .dir-foot{margin-top:46px;text-align:center}
+.hvcx .dir-foot p{margin:0 0 20px;color:var(--ink-dim);font-size:1.02rem}
+.hvcx .dir-foot p b{color:#fff;font-weight:600}
+.hvcx .dir-foot .btn svg{width:18px;height:18px;fill:currentColor;flex:none}
+@media (max-width: 980px){
+.hvcx .dir-grid{grid-template-columns:1fr;max-width:440px;gap:16px}
+}
+@media (max-width: 640px){
+.hvcx .dthread{height:72px;margin-bottom:36px}
+.hvcx .dthread.out{margin-top:44px}
+.hvcx .dir-card{padding:36px 20px 30px;border-radius:20px}
+.hvcx .dir-mono{width:94px;height:94px;font-size:1.6rem;margin-bottom:20px}
+.hvcx .dir-card h3{font-size:1.3rem}
+.hvcx .dir-foot p{font-size:.94rem}
+}
+
+/* ============ NUMBERS WALL ============ */
+.hvcx .wall-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.hvcx .wnum{position:relative;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:24px;padding:30px 26px 26px;text-align:center;
+  transition:transform .28s var(--ease),border-color .28s var(--ease)}
+.hvcx .wnum::before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;border-radius:0 0 4px 4px;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi))}
+.hvcx .wnum:hover{transform:translateY(-5px);border-color:rgba(227,192,119,.4)}
+.hvcx .wnum b{display:block;white-space:nowrap;font-family:var(--head);font-weight:800;font-size:clamp(2.1rem,3.6vw,2.9rem);color:#fff;line-height:1.1;letter-spacing:-.01em}
+.hvcx .wnum b i{font-style:normal;color:var(--gold-hi)}
+.hvcx .wnum > span{display:block;margin-top:6px;font-size:.72rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#8FA3CC}
+.hvcx .wall-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+.hvcx .wchip{padding:8px 18px;border-radius:var(--r-pill);border:1px solid var(--line);background:rgba(255,255,255,.04);
+  font-family:var(--head);font-weight:600;font-size:.8rem;color:var(--ink)}
+.hvcx .wchip b{color:var(--gold-hi);font-weight:700}
+
+/* ============ VISION & MISSION ============ */
+.hvcx .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1020px;margin:0 auto}
+.hvcx .vm-card{position:relative;overflow:hidden;background:linear-gradient(160deg,#0C3170 0%,#081F49 100%);
+  border:1.5px solid rgba(200,154,61,.45);border-radius:26px;padding:34px 32px 30px;
+  box-shadow:inset 0 0 60px rgba(200,154,61,.05),0 24px 50px -28px rgba(3,10,26,.9);
+  transition:transform .28s var(--ease),border-color .28s var(--ease)}
+.hvcx .vm-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi),var(--gold-deep))}
+.hvcx .vm-card:hover{transform:translateY(-5px);border-color:rgba(227,192,119,.75)}
+.hvcx .vm-card .ic{width:52px;height:52px;border-radius:16px;background:var(--gold-wash);border:1px solid rgba(200,154,61,.4);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.hvcx .vm-card .ic svg{width:26px;height:26px;stroke:var(--gold-hi);fill:none;stroke-width:1.8}
+.hvcx .vm-card .tag{display:block;font-family:var(--head);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:8px}
+.hvcx .vm-card h3{color:#fff;font-size:1.28rem;font-weight:800;letter-spacing:-.01em;margin-bottom:12px}
+.hvcx .vm-card p{margin:0;font-size:.92rem;color:var(--ink-dim)}
+.hvcx .vm-card p b{color:var(--ink);font-weight:600}
+
+/* ============ GOLD CTA BAND ============ */
+.hvcx .next{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding:58px 0;
+  background:linear-gradient(120deg,#B98A31,#C89A3D 55%,#D9B463)}
+.hvcx .next::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.2) 1px,transparent 1px);background-size:18px 18px;opacity:.4}
+.hvcx .next-in{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.hvcx .next .k{display:block;font-family:var(--head);font-weight:700;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#FFF3DB;margin-bottom:8px}
+.hvcx .next h2{color:#fff;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:800;letter-spacing:-.012em;margin-bottom:8px}
+.hvcx .next p{margin:0;font-size:.95rem;color:#FFF3DB;max-width:56ch}
+.hvcx .next .ctas{display:flex;flex-wrap:wrap;gap:12px;flex:none}
+.hvcx .next .btn-ghost{border-color:rgba(255,255,255,.55)}
+
+/* ============ FOOTER ============ */
+.hvcx .ftr{background:#061737;color:#C7D3EC;padding:42px 0 26px;font-size:.86rem}
+.hvcx .ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:30px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.08)}
+.hvcx .ftr h4{font-family:var(--head);color:#fff;font-size:.9rem;font-weight:700;margin:0 0 12px}
+.hvcx .ftr a{display:block;padding:3px 0;transition:color .2s}
+.hvcx .ftr a:hover{color:var(--gold-hi)}
+.hvcx .ftr .brand{font-family:var(--head);font-weight:800;font-size:1.1rem;color:#fff}
+.hvcx .ftr .brand i{font-style:normal;color:var(--gold)}
+.hvcx .ftr p{margin:10px 0 0;max-width:32ch}
+.hvcx .ftr .addr{display:block;padding:3px 0;line-height:1.55}
+.hvcx .ftr-bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:18px}
+
+/* ============ WA FAB ============ */
+.hvcx .wa-fab{position:fixed;right:24px;bottom:24px;z-index:60;width:56px;height:56px;border-radius:50%;
+  background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:transform .25s var(--ease)}
+.hvcx .wa-fab:hover{transform:scale(1.08)}
+.hvcx .wa-fab svg{width:29px;height:29px;fill:#fff}
+
+/* ============ MOTION ============ */
+@media (prefers-reduced-motion: no-preference){
+.hvcx .rise{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.hvcx .rise.in{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion: reduce){
+.hvcx .thread::after,.hvcx .tl::after,.hvcx .thread-l::after,.hvcx .dthread::after{animation:none;opacity:0}
+.hvcx .tl-node::before{animation:none;opacity:.4;transform:none}
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1080px){
+.hvcx .nav a{padding:10px 9px;font-size:.88rem}
+}
+@media (max-width: 980px){
+.hvcx .nav{display:none}
+.hvcx .menu-btn{display:flex}
+.hvcx .legacy-in{padding-top:64px}
+  /* timeline collapses to a single left-rail column */
+.hvcx .tl::before{left:32px;margin-left:0}
+.hvcx .tl::after{left:32px;margin-left:-4px}
+.hvcx .tli{display:block;padding-left:66px;margin-bottom:44px}
+.hvcx .tl-node{position:absolute;left:24px;top:8px}
+.hvcx .tl-num{display:block;font-size:2.6rem;padding:0 0 6px}
+.hvcx .tli:nth-child(odd) .tl-num,.hvcx .tli:nth-child(even) .tl-num{padding-left:0;padding-right:0;justify-self:auto}
+.hvcx .tl-card::after{display:none}
+.hvcx .sig-grid{grid-template-columns:1fr;gap:18px}
+.hvcx .vm-grid{grid-template-columns:1fr}
+.hvcx .next-in{flex-direction:column;align-items:flex-start}
+.hvcx .ftr-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 760px){
+.hvcx html,.hvcx body{overflow-x:hidden;max-width:100vw}
+.hvcx .topbar-in{justify-content:center}
+.hvcx .topbar .r{display:none}
+.hvcx .logo img{height:44px}
+.hvcx .hdr .btn{padding:10px 16px;font-size:.84rem}
+.hvcx .thread-l.in{height:56px;margin-bottom:24px}
+.hvcx .thread-l.out{height:56px;margin-top:36px}
+.hvcx .sheet::before{inset:10px -8px -10px 8px}
+.hvcx .paper{padding:38px 26px 36px;border-radius:22px}
+.hvcx .paper::before{margin:-38px -26px 32px}
+.hvcx .letter p{font-size:.99rem;line-height:1.8}
+.hvcx .pull{font-size:1.08rem;padding-left:18px;margin:24px 0}
+.hvcx .lhead .place{text-align:left}
+.hvcx .wall-grid{grid-template-columns:1fr 1fr;gap:12px}
+.hvcx .wnum{padding:22px 14px 18px;border-radius:18px}
+}
+@media (max-width: 640px){
+.hvcx .wrap{padding:0 16px}
+.hvcx .band{padding:56px 0}
+.hvcx .legacy-in{padding-top:52px}
+.hvcx .thread{height:90px;margin-top:32px}
+.hvcx .lineage{flex-direction:column;gap:10px}
+.hvcx .ln-arrow{width:2px;height:26px;background:linear-gradient(180deg,var(--gold-deep),var(--gold-hi))}
+.hvcx .ln-arrow::after{right:-3.5px;top:auto;bottom:-1px;border-left:4.5px solid transparent;border-right:4.5px solid transparent;border-top:8px solid var(--gold-hi);border-bottom:none}
+.hvcx .ln-card{text-align:center}
+.hvcx .tl-card{padding:20px 18px 18px;border-radius:18px}
+.hvcx .tl-card h3{font-size:1.02rem}
+.hvcx .tl-card p{font-size:.83rem}
+.hvcx .tli{padding-left:58px;margin-bottom:36px}
+.hvcx .tl::before{left:26px}
+.hvcx .tl::after{left:26px}
+.hvcx .tl-node{left:19px;width:16px;height:16px}
+.hvcx .tl-num{font-size:2.1rem}
+.hvcx .tl-chip{width:48px;height:48px;border-radius:12px}
+.hvcx .bword{top:76px}
+.hvcx .vm-card{padding:26px 22px 24px;border-radius:20px}
+.hvcx .next{padding:48px 0}
+.hvcx .ftr-grid{grid-template-columns:1fr}
+}
+@media (max-width: 520px){
+.hvcx .logo img{height:40px}
+.hvcx .wnum b{font-size:1.6rem}
+.hvcx .wnum > span{font-size:.62rem}
+}
+@media (max-width: 400px){
+.hvcx .paper{padding:32px 18px 30px;border-radius:20px}
+.hvcx .paper::before{margin:-32px -18px 28px}
+.hvcx .lp-first::first-letter{font-size:3.3em;padding-right:10px}
+}
+@media (min-width: 981px){
+.hvcx .mnav{display:none}
+}
+.hvcx h1,.hvcx h2,.hvcx h3,.hvcx h4,.hvcx .btn{text-transform:none}
+</style>
+<div class="hvcx">
+<section class="legacy">
+  <div class="wrap">
+    <div class="legacy-in rise">
+      <span class="kick">About Hrivika Global</span>
+      <h1>45+ years in the building trade.<br><b>Now shipping worldwide.</b></h1>
+      <p class="lede">Hrivika Global Private Limited is the export arm of a building-materials house that has supplied India's construction trade for <b>45+ years</b>. Today that legacy ships as a <b>5,355-product catalogue</b>, quoted per consignment to importers in <b>worldwide</b>.</p>
+      <div class="l-ctas">
+        <a class="btn btn-gold" href="https://wa.me/917070292133" target="_blank" rel="noopener">Get a Quote</a>
+        <a class="btn btn-ghost" href="https://hrivika.com/products/">Browse the catalogue</a>
+      </div>
+      <div class="lineage">
+        <div class="ln-card"><span>The house</span><b>45+ years in the trade</b></div>
+        <span class="ln-arrow" aria-hidden="true"></span>
+        <div class="ln-card"><span>The export arm</span><b>Hrivika Global Private Limited</b></div>
+      </div>
+    </div>
+    <div class="thread" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- THE LEGACY LINE -->
+<section class="band era" id="legacy-line">
+  <div class="wrap">
+    <div class="band-head rise">
+      <span class="k-eyebrow">The Legacy Line</span>
+      <h2>One golden thread. <b>Five eras.</b></h2>
+      <p>From a building-materials counter in India to importers worldwide — the line runs unbroken.</p>
+    </div>
+    <div class="tl">
+      <div class="tli rise">
+        <div class="tl-card">
+          <span class="tl-meta">Era 01 · 45+ years ago · India</span>
+          <h3>Hindustan Cement Agency opens its doors</h3>
+          <p>The parent house sets up its counter, supplying building materials to India's construction trade. Everything that follows stands on this counter.</p>
+        </div>
+        <span class="tl-node" aria-hidden="true"></span>
+        <span class="tl-num" aria-hidden="true">01</span>
+      </div>
+      <div class="tli rise">
+        <div class="tl-card">
+          <span class="tl-meta">Era 02 · The decades</span>
+          <h3>Decades supplying India's construction trade</h3>
+          <p>Year over year, the house learns the materials business the long way — what the trade builds with, what holds up, and what a fair consignment looks like. <b>45+ years of it.</b></p>
+        </div>
+        <span class="tl-node" aria-hidden="true"></span>
+        <span class="tl-num" aria-hidden="true">02</span>
+      </div>
+      <div class="tli rise">
+        <div class="tl-card">
+          <span class="tl-meta">Era 03 · The export arm</span>
+          <h3>Hrivika Global Private Limited is incorporated</h3>
+          <p>The house points its trade knowledge at the ports. <b>Hrivika Global</b> becomes the export arm — built to ship the same materials from India to importers worldwide, with the documentation handled by one desk.</p>
+        </div>
+        <span class="tl-node" aria-hidden="true"></span>
+        <span class="tl-num" aria-hidden="true">03</span>
+      </div>
+      <div class="tli rise">
+        <div class="tl-card">
+          <span class="tl-meta">Era 04 · hrivika.com/products</span>
+          <h3>The 5,355-product catalogue goes live</h3>
+          <p>The full range is specified, photographed and published — <b>5,355 products</b> across <b>777 pages</b> and <b>4 categories</b>. No prices online; every enquiry quoted per consignment.</p>
+          <div class="tl-chips" aria-hidden="true">
+            <span class="tl-chip"><img src="https://hrivika.com/products/img/7074977df18258cd.jpg" alt="" loading="lazy"></span>
+            <span class="tl-chip"><img src="https://hrivika.com/products/img/45b4762c1b722cc7.jpg" alt="" loading="lazy"></span>
+            <span class="tl-chip"><img src="https://hrivika.com/products/img/66c26e02d0d9ee38.jpg" alt="" loading="lazy"></span>
+            <span class="tl-chip"><img src="https://hrivika.com/products/img/380e58f408a9476d.jpg" alt="" loading="lazy"></span>
+            <span class="tl-chip more">+5,351 more</span>
+          </div>
+          <a class="tl-go" href="https://hrivika.com/products/">Browse the catalogue →</a>
+        </div>
+        <span class="tl-node" aria-hidden="true"></span>
+        <span class="tl-num" aria-hidden="true">04</span>
+      </div>
+      <div class="tli rise">
+        <div class="tl-card">
+          <span class="tl-meta">Era 05 · Today</span>
+          <h3>Worldwide reach. One desk.</h3>
+          <p>From one desk in India, consignments are quoted, documented and shipped to importers <b>across the world</b> — mixed containers welcome, WhatsApp answered <b>24/7</b>.</p>
+          <a class="tl-go" href="https://wa.me/917070292133" target="_blank" rel="noopener">WhatsApp the desk →</a>
+        </div>
+        <span class="tl-node" aria-hidden="true"></span>
+        <span class="tl-num" aria-hidden="true">05</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE LETTER — the thread crosses into the light -->
+<section class="letter-sec" id="letter">
+  <div class="bword" aria-hidden="true"><span>FROM JAMSHEDPUR</span></div>
+  <div class="wrap">
+    <div class="thread-l in" aria-hidden="true"></div>
+    <div class="lite-head rise">
+      <span class="k-eyebrow">The Letter</span>
+      <h2>The timeline is the record. <b>This is the voice.</b></h2>
+      <p>You have read the years. Here is what they taught the house — written the way we would say it across the desk.</p>
+    </div>
+    <div class="sheet rise">
+      <article class="paper letter">
+        <div class="lhead">
+          <div class="mark">
+            <span class="lmono"><img src="https://hrivika.com/products/assets/favicon-192.png" alt="Hrivika Global" loading="lazy" onerror="this.parentElement.style.display='none'"></span>
+            <div>
+              <b>Hrivika Global Private Limited</b>
+              <span>Merchant Export House · India</span>
+            </div>
+          </div>
+          <div class="place">India</div>
+        </div>
+        <div class="lrule" aria-hidden="true"></div>
+
+        <p class="salut">To the importers we serve — and the ones we hope to,</p>
+
+        <p class="lp-first">The timeline above is the short version. The long version is forty-five years of contractors walking up to a counter with a list — and the house finding the material, checking it, and standing behind it. That is the whole business model. It has not changed. Only the counter has grown longer.</p>
+
+        <p>Those years taught us one thing worth writing down: <b>materials are specified, not sold</b>. A pipe is a pressure class, a standard and a dimension — not a pitch. So the catalogue at <a href="https://hrivika.com/products/">hrivika.com/products</a> reads like a specification sheet — <b>5,355 products across 777 pages and 4 categories</b> — and the desk answers like an engineer's counter, not a showroom.</p>
+
+        <div class="pull">You will notice the catalogue publishes no prices. That is deliberate — no two consignments are the same.</div>
+
+        <p>Your sizes, your quantities, your mix of products, your port — these set the number. So we quote <b>each consignment on WhatsApp</b>, itemised for exactly what you are ordering. A published price list would be wrong for almost everyone; a consignment quote is right for you.</p>
+
+        <p>Here is what you can expect from the desk: the full catalogue open to you, with nothing held back for "bigger" buyers; a consignment quote against your list; <b>export documentation handled</b> end to end; <b>mixed containers</b> welcome, so one shipment can carry pipes beside valves beside fittings; and one number — <b>+91 70702 92133</b> — that answers <b>24/7</b> and carries your order from first enquiry to sailing.</p>
+
+        <p>Send us your list. We will do what this house has done for forty-five years — find the material, check it, and stand behind it.</p>
+
+        <p class="closing">With respect, from our desk in India,</p>
+
+        <div class="sigs">
+          <p class="for">For Hrivika Global Private Limited</p>
+          <div class="signames">
+            <span class="signame">Hrithik Garg</span>
+            <span class="sigdot" aria-hidden="true">·</span>
+            <span class="signame">Narayan Garg</span>
+            <span class="sigdot" aria-hidden="true">·</span>
+            <span class="signame">Vartika Agarwal</span>
+          </div>
+          <a class="sig-meet" href="#directors">Meet the three directors below ↓</a>
+        </div>
+      </article>
+    </div>
+    <div class="thread-l out" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- THE DIRECTORS — the desk behind the trade -->
+<section class="band dirs" id="directors">
+  <div class="wrap">
+    <div class="dthread" aria-hidden="true"></div>
+    <div class="band-head rise">
+      <span class="k-eyebrow">The Directors</span>
+      <h2>The desk behind <b>the trade.</b></h2>
+      <p>Three names signed the letter above — the directors of Hrivika Global Private Limited, at the desk in India.</p>
+    </div>
+    <div class="dir-grid">
+      <article class="dir-card rise">
+        <span class="dir-mono" aria-hidden="true">HG</span>
+        <span class="dir-eyebrow">Director</span>
+        <h3>Hrithik Garg</h3>
+        <p class="dir-bio">An entrepreneur and dynamic business leader, Hrithik began his business journey at the age of 20 by joining the family's trading business — having already begun investing, with early financial acumen and strategic thinking. His expertise lies in trading, business expansion, financial growth and strategic investments.</p>
+        <a class="dir-li" href="https://www.linkedin.com/in/hrithikgarg202" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1-.02 5 2.5 2.5 0 0 1 .02-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
+          LinkedIn
+        </a>
+      </article>
+      <article class="dir-card rise">
+        <span class="dir-mono" aria-hidden="true">NG</span>
+        <span class="dir-eyebrow">Director</span>
+        <h3>Narayan Garg</h3>
+        <p class="dir-bio">An entrepreneur and dynamic business leader, Narayan began his business journey at an early age by joining the family's trading business — demonstrating strategic thinking in trading and in expanding the business ever since.</p>
+      </article>
+      <article class="dir-card rise">
+        <span class="dir-mono" aria-hidden="true">VA</span>
+        <span class="dir-eyebrow">Director</span>
+        <h3>Vartika Agarwal</h3>
+        <p class="dir-bio">Coming from a strong business background, Vartika is an MBA graduate in Finance &amp; Investment with experience in business management, operations and product strategy. She has worked in a high-growth startup, driving product execution and operational excellence — her expertise in financial planning and strategic execution complemented by a commitment to social impact through volunteering with NGOs.</p>
+        <a class="dir-li" href="https://www.linkedin.com/in/vartikagarwal" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1-.02 5 2.5 2.5 0 0 1 .02-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
+          LinkedIn
+        </a>
+      </article>
+    </div>
+    <div class="dthread out" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- NUMBERS WALL -->
+<section class="band wall" id="numbers">
+  <div class="wrap">
+    <div class="band-head rise">
+      <span class="k-eyebrow">The record</span>
+      <h2>The legacy, <b>in numbers.</b></h2>
+      <p>Everything the letter just promised — counted, as it stands today.</p>
+    </div>
+    <div class="wall-grid">
+      <div class="wnum rise"><b><span class="cnt" data-n="45">45</span><i>+</i></b><span>Years in the building trade</span></div>
+      <div class="wnum rise"><b><span class="cnt" data-n="5355">5,355</span></b><span>Products in the catalogue</span></div>
+      <div class="wnum rise"><b><span class="cnt" data-n="777">777</span></b><span>Fully specified product pages</span></div>
+      <div class="wnum rise"><b>24<i>/7</i></b><span>Export desk on WhatsApp</span></div>
+    </div>
+    <div class="wall-chips rise">
+      <span class="wchip"><b>4</b> categories</span>
+      <span class="wchip"><b>24/7</b> export desk</span>
+      <span class="wchip">Quoted <b>per consignment</b></span>
+      <span class="wchip">Export <b>documentation handled</b></span>
+      <span class="wchip"><b>Mixed containers</b> welcome</span>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section class="band vm" id="vision-mission">
+  <div class="wrap">
+    <div class="band-head rise">
+      <span class="k-eyebrow">Vision &amp; Mission</span>
+      <h2>Where the line <b>goes next.</b></h2>
+      <p>Written the way the export desk talks — plainly.</p>
+    </div>
+    <div class="vm-grid">
+      <article class="vm-card rise">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="tag">Vision</span>
+        <h3>One desk importers trust for Indian building materials.</h3>
+        <p>Every product specified, every consignment quoted straight, every document handled — so that wherever a container of pipes, valves, hoses or bath fittings is needed, the first message goes to <b>Hrivika Global</b>.</p>
+      </article>
+      <article class="vm-card rise">
+        <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.4"/></svg></span>
+        <span class="tag">Mission</span>
+        <h3>Ship India's building trade to the world.</h3>
+        <p>Keep <b>5,355 products</b> specified across <b>777 pages</b> and <b>4 categories</b>, quote every enquiry per consignment, prepare the export documentation, load mixed containers — and keep the desk answering <b>24/7 on WhatsApp</b>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="next">
+  <div class="wrap next-in rise">
+    <div>
+      <span class="k">The next era</span>
+      <h2>45+ years in. Your first consignment out.</h2>
+      <p>Browse 5,355 products, send your list, and get it quoted per consignment on WhatsApp — the desk answers 24/7.</p>
+    </div>
+    <div class="ctas">
+      <a class="btn btn-white" href="https://hrivika.com/products/">Browse the catalogue</a>
+      <a class="btn btn-ghost" href="https://wa.me/917070292133?text=Hello%20Hrivika%20Global%2C%20I%20read%20your%20letter%20%E2%80%94%20please%20quote%20my%20consignment." target="_blank" rel="noopener">WhatsApp the export desk</a>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+
+</div>
+<script defer src="https://hrivika.com/products/assets/wp-pages.js?v=2"></script>
+<!-- /wp:html -->
