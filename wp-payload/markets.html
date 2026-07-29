@@ -1,0 +1,480 @@
+<!-- wp:html -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2F6D; --navy-deep:#081F49; --blue:#163F85; --blue-soft:#2C55A4;
+  --gold:#C89A3D; --gold-deep:#A87722; --gold-hi:#E3C077; --gold-wash:rgba(200,154,61,.12);
+  --text:#2E3542; --gray:#6B7280; --pale:#EEF3FA; --bg:#F8F9FC;
+  --border:#E5E7EB; --white:#FFFFFF; --wa:#25D366; --wa-deep:#1DA851;
+  --ink:#C7D3EC; --ink-dim:#A9B8DA; --line:rgba(255,255,255,.12);
+  --head:"Plus Jakarta Sans",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,sans-serif;
+  --r-card:22px; --r-pill:100px;
+  --shadow:0 16px 40px -18px rgba(11,47,109,.16);
+  --shadow-lift:0 26px 56px -22px rgba(11,47,109,.3);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+.hvcx *{box-sizing:border-box}
+.hvcx{margin:0;font-family:var(--body);font-size:16px;line-height:1.6;color:var(--text);background:var(--navy-deep);-webkit-font-smoothing:antialiased}
+.hvcx img{max-width:100%;display:block}
+.hvcx a{color:inherit;text-decoration:none}
+.hvcx button{font-family:var(--body)}
+.hvcx h1,.hvcx h2,.hvcx h3,.hvcx h4{font-family:var(--head);color:var(--navy);margin:0;line-height:1.15}
+.hvcx .wrap{max-width:1260px;margin:0 auto;padding:0 24px}
+
+/* ============ TOP BAR ============ */
+.hvcx .topbar{background:var(--navy-deep);color:#C7D3EC;font-size:.78rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.hvcx .topbar-in{display:flex;justify-content:space-between;gap:16px;padding:7px 0}
+.hvcx .topbar b{color:var(--gold-hi);font-weight:600}
+.hvcx .topbar .r{display:flex;gap:18px}
+
+/* ============ HEADER ============ */
+.hvcx .hdr{background:#fff;position:sticky;top:0;z-index:70;border-bottom:2px solid var(--gold)}
+.hvcx .hdr-in{display:flex;align-items:center;gap:18px;padding:12px 0}
+.hvcx .logo{flex:none}
+.hvcx .logo img{height:52px;width:auto}
+.hvcx .logo-fb{display:none;font-family:var(--head);font-weight:800;font-size:1.1rem;color:var(--navy)}
+.hvcx .logo-fb b{color:var(--gold)}
+.hvcx .nav{display:flex;gap:2px;margin-left:8px}
+.hvcx .nav a{position:relative;white-space:nowrap;padding:10px 13px;font-weight:600;font-size:.92rem;color:var(--text);transition:color .2s}
+.hvcx .nav a:hover{color:var(--gold-deep)}
+.hvcx .nav a.on{color:var(--navy)}
+.hvcx .nav a.on::after{content:"";position:absolute;left:13px;right:13px;bottom:2px;height:2.5px;border-radius:2px;background:var(--gold-deep)}
+.hvcx .hact{display:flex;align-items:center;gap:10px;margin-left:auto}
+.hvcx .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:.94rem;
+  border-radius:var(--r-pill);padding:13px 26px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s}
+.hvcx .btn-gold{background:var(--gold-deep);color:#fff}
+.hvcx .btn-gold:hover{background:#96691C;transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(168,119,34,.55)}
+.hvcx .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.hvcx .btn-ghost:hover{border-color:#fff;transform:translateY(-2px)}
+.hvcx .btn-wa{background:var(--wa);color:#fff}
+.hvcx .btn-wa:hover{background:var(--wa-deep);transform:translateY(-2px)}
+.hvcx .btn-white{background:#fff;color:var(--navy)}
+.hvcx .btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(4,12,30,.4)}
+.hvcx .hdr .btn{padding:11px 22px;font-size:.9rem}
+.hvcx .menu-btn{display:none;border:1.5px solid var(--border);background:#fff;border-radius:12px;width:42px;height:42px;cursor:pointer;flex:none;align-items:center;justify-content:center}
+.hvcx .menu-btn svg{width:22px;height:22px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round}
+
+/* mobile nav panel */
+.hvcx .mnav{position:fixed;top:0;left:-360px;width:min(340px,88vw);height:100%;background:#fff;z-index:96;display:flex;flex-direction:column;box-shadow:24px 0 60px -20px rgba(4,12,30,.4);transition:left .35s var(--ease)}
+.hvcx .mnav.on{left:0}
+.hvcx .mnav-h{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--navy);color:#fff}
+.hvcx .mnav-h b{font-family:var(--head);font-size:1rem;font-weight:700}
+.hvcx .mnav-x{background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;line-height:1;padding:4px}
+.hvcx .mnav-list{flex:1;overflow-y:auto;padding:8px 0}
+.hvcx .mnav-list a{display:block;padding:14px 22px;font-family:var(--head);font-weight:700;font-size:.98rem;color:var(--navy);border-bottom:1px solid var(--bg)}
+.hvcx .mnav-list a.on{color:var(--gold-deep);background:var(--gold-wash);box-shadow:inset 3px 0 0 var(--gold-deep)}
+.hvcx .mnav-f{padding:14px 18px;border-top:1px solid var(--border)}
+.hvcx .mnav-f .btn{width:100%}
+.hvcx .mnav-f small{display:block;text-align:center;margin-top:10px;font-size:.74rem;color:var(--gray)}
+.hvcx .scrim{position:fixed;inset:0;background:rgba(8,18,40,.5);z-index:90;opacity:0;pointer-events:none;transition:opacity .3s}
+.hvcx .scrim.on{opacity:1;pointer-events:auto}
+
+/* ============ ATLAS HERO — the map IS the background ============ */
+.hvcx .atlas{position:relative;isolation:isolate;overflow:hidden;color:#fff;
+  background:radial-gradient(1100px 640px at 74% 40%,#12377A 0%,var(--navy) 46%,var(--navy-deep) 100%)}
+.hvcx .atlas::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:20px 20px;opacity:.5}
+.hvcx .atlas-map{position:absolute;top:50%;right:-3%;transform:translateY(-51%);width:min(76%,1000px);z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 26%);mask-image:linear-gradient(90deg,transparent 0%,#000 26%)}
+.hvcx .atlas-map svg{display:block;width:100%;height:auto}
+.hvcx .atlas-shade{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(8,31,73,.9) 0%,rgba(8,31,73,.62) 30%,rgba(8,31,73,.12) 55%,rgba(8,31,73,0) 68%)}
+.hvcx .atlas .wrap{position:relative;z-index:2}
+.hvcx .a-inner{display:flex;align-items:center;min-height:640px;padding:72px 0 76px}
+.hvcx .a-copy{max-width:630px}
+.hvcx .kick{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:18px}
+.hvcx .kick::before{content:"";width:30px;height:2px;background:var(--gold)}
+.hvcx .a-copy h1{color:#fff;font-size:clamp(2.3rem,5vw,3.7rem);font-weight:800;letter-spacing:-.018em;line-height:1.05}
+.hvcx .a-copy h1 b{color:var(--gold-hi)}
+.hvcx .a-copy .lede{color:var(--ink);margin:18px 0 28px;max-width:50ch;font-size:1.03rem}
+.hvcx .a-copy .lede b{color:#fff;font-weight:600}
+.hvcx .a-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hvcx .a-legend{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:30px;font-size:.78rem;color:#8FA3CC;align-items:center}
+.hvcx .a-legend span{display:inline-flex;align-items:center;gap:8px}
+.hvcx .lg-hub{width:11px;height:11px;border-radius:50%;background:#fff;border:3px solid var(--gold);flex:none}
+.hvcx .lg-arc{width:26px;height:0;border-top:2px dashed var(--gold-hi);opacity:.8;flex:none}
+
+/* --- SVG map internals --- */
+.hvcx .grat{stroke:rgba(255,255,255,.05);stroke-width:1}
+.hvcx .arc{fill:none;stroke:rgba(227,192,119,.85);stroke-width:1.4;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  animation:arcd 7.6s cubic-bezier(.4,0,.2,1) infinite;animation-delay:var(--d,0s)}
+@keyframes arcd{
+  0%{stroke-dashoffset:1;opacity:0}
+  6%{opacity:.9}
+  42%{stroke-dashoffset:0;opacity:.9}
+  62%{opacity:0}
+  100%{stroke-dashoffset:0;opacity:0}
+}
+.hvcx .dst{fill:var(--gold-hi);opacity:.32;animation:dstp 7.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes dstp{0%,28%{opacity:.28}44%{opacity:1}58%{opacity:1}78%,100%{opacity:.28}}
+.hvcx .hub-ring{transform-box:fill-box;transform-origin:center;animation:hpulse 2.8s ease-out infinite}
+@keyframes hpulse{0%{transform:scale(.45);opacity:.9}80%{transform:scale(3);opacity:0}100%{transform:scale(3);opacity:0}}
+.hvcx .hub-label{font-family:var(--head);font-weight:700;font-size:11px;letter-spacing:.18em;fill:var(--gold-hi)}
+.hvcx .hub-sub{font-family:var(--body);font-weight:500;font-size:9.5px;letter-spacing:.1em;fill:#9FB2D8}
+@media (prefers-reduced-motion: reduce){
+  .arc{animation:none;stroke-dashoffset:0;opacity:.3}
+  .dst{animation:none;opacity:.75}
+  .hub-ring{animation:none;transform:none;opacity:.55}
+}
+
+/* ============ STAT STRIP ============ */
+.hvcx .astats{background:#071B40;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.hvcx .astats-in{display:grid;grid-template-columns:repeat(4,1fr);padding:26px 0}
+.hvcx .ast{padding:2px 28px;border-left:1px solid rgba(255,255,255,.1)}
+.hvcx .ast:first-child{border-left:none;padding-left:0}
+.hvcx .ast b{display:block;font-family:var(--head);font-weight:800;font-size:1.9rem;color:#fff;line-height:1.1;letter-spacing:-.01em}
+.hvcx .ast b i{font-style:normal;color:var(--gold-hi)}
+.hvcx .ast span{font-size:.72rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#8FA3CC}
+/* ============ DARK BANDS ============ */
+.hvcx .band{position:relative;isolation:isolate;padding:78px 0;overflow:hidden}
+.hvcx .band.caps{background:linear-gradient(180deg,var(--navy-deep) 0%,#0A2757 100%)}
+.hvcx .band.route{background:#071B40}
+.hvcx .band::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px;opacity:.6}
+.hvcx .band-head{text-align:center;max-width:660px;margin:0 auto 42px}
+.hvcx .k-eyebrow{font-family:var(--head);font-weight:700;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
+.hvcx .band-head h2{color:#fff;font-size:clamp(1.55rem,3.1vw,2.3rem);font-weight:800;letter-spacing:-.012em;margin:9px 0 12px}
+.hvcx .band-head h2 b{color:var(--gold-hi)}
+.hvcx .band-head p{color:var(--ink-dim);margin:0}
+
+/* ============ CAPABILITY CARDS ============ */
+.hvcx .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.hvcx .cap{position:relative;overflow:hidden;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:24px;
+  padding:26px 24px 22px;display:flex;flex-direction:column;transition:transform .28s var(--ease),background .28s var(--ease),border-color .28s var(--ease)}
+.hvcx .cap::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.hvcx .cap:hover{transform:translateY(-5px);background:rgba(255,255,255,.07);border-color:rgba(227,192,119,.4)}
+.hvcx .cap:hover::before{transform:scaleX(1)}
+.hvcx .cap .ic{width:48px;height:48px;border-radius:15px;background:var(--gold-wash);border:1px solid rgba(200,154,61,.35);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.hvcx .cap .ic svg{width:24px;height:24px;stroke:var(--gold-hi);fill:none;stroke-width:1.8}
+.hvcx .cap h3{color:#fff;font-size:1.04rem;font-weight:700;margin-bottom:7px}
+.hvcx .cap p{margin:0;font-size:.85rem;color:var(--ink-dim);flex:1}
+.hvcx .cap p b{color:var(--ink);font-weight:600}
+.hvcx .cap .go{margin-top:16px;padding-top:13px;border-top:1px solid rgba(255,255,255,.08);font-weight:600;font-size:.84rem;color:var(--gold-hi)}
+.hvcx .cap .go:hover{color:#fff}
+
+/* ============ ROUTE — from Jamshedpur to your port ============ */
+.hvcx .rsteps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.hvcx .rsteps::before{content:"";position:absolute;top:34px;left:9%;right:9%;border-top:2px dashed rgba(200,154,61,.4)}
+.hvcx .rstep{text-align:center;padding:0 6px}
+.hvcx .rstep .n{position:relative;z-index:1;width:68px;height:68px;border-radius:50%;margin:0 auto 16px;
+  background:linear-gradient(160deg,#0C3170,#081F49);border:1.5px solid rgba(200,154,61,.55);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -14px rgba(3,10,26,.9)}
+.hvcx .rstep .n svg{width:28px;height:28px;stroke:var(--gold-hi);fill:none;stroke-width:1.7}
+.hvcx .rstep .n em{position:absolute;top:-7px;right:-7px;width:24px;height:24px;border-radius:50%;background:var(--gold-deep);color:#fff;
+  font-style:normal;font-family:var(--head);font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px -6px rgba(168,119,34,.8)}
+.hvcx .rstep h3{color:#fff;font-size:.98rem;font-weight:700;margin-bottom:6px}
+.hvcx .rstep p{margin:0;font-size:.8rem;color:var(--ink-dim)}
+.hvcx .route-note{text-align:center;margin-top:34px;font-size:.85rem;color:var(--ink-dim)}
+.hvcx .route-note b{color:#fff;font-weight:600}
+
+/* ============ GOLD CTA BAND ============ */
+.hvcx .next{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding:58px 0;
+  background:linear-gradient(120deg,#B98A31,#C89A3D 55%,#D9B463)}
+.hvcx .next::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.2) 1px,transparent 1px);background-size:18px 18px;opacity:.4}
+.hvcx .next-in{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.hvcx .next .k{display:block;font-family:var(--head);font-weight:700;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#FFF3DB;margin-bottom:8px}
+.hvcx .next h2{color:#fff;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:800;letter-spacing:-.012em;margin-bottom:8px}
+.hvcx .next p{margin:0;font-size:.95rem;color:#FFF3DB;max-width:56ch}
+.hvcx .next .ctas{display:flex;flex-wrap:wrap;gap:12px;flex:none}
+.hvcx .next .btn-ghost{border-color:rgba(255,255,255,.55)}
+
+/* ============ ENQUIRY BAND ============ */
+.hvcx .enq{background:linear-gradient(120deg,var(--navy-deep),var(--navy) 55%,var(--blue));position:relative;overflow:hidden;color:#fff;padding:70px 0;text-align:center;isolation:isolate}
+.hvcx .enq::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1px);background-size:22px 22px;opacity:.5}
+.hvcx .enq::after{content:"";position:absolute;top:-240px;right:-140px;width:560px;height:560px;border-radius:50%;z-index:-1;background:radial-gradient(circle,rgba(200,154,61,.26) 0%,transparent 62%)}
+.hvcx .enq-in{max-width:680px;margin:0 auto;padding:0 24px}
+.hvcx .enq .k-eyebrow{display:block;margin-bottom:10px}
+.hvcx .enq h2{color:#fff;font-size:clamp(1.55rem,3.1vw,2.3rem);font-weight:800;margin-bottom:10px}
+.hvcx .enq h2 b{color:var(--gold-hi)}
+.hvcx .enq p{color:var(--ink);margin:0 0 28px}
+.hvcx .enq .ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.hvcx .enq small{display:block;margin-top:18px;font-size:.8rem;color:var(--ink)}
+
+/* ============ FOOTER ============ */
+.hvcx .ftr{background:#061737;color:#C7D3EC;padding:42px 0 26px;font-size:.86rem}
+.hvcx .ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:30px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.08)}
+.hvcx .ftr h4{font-family:var(--head);color:#fff;font-size:.9rem;font-weight:700;margin:0 0 12px}
+.hvcx .ftr a{display:block;padding:3px 0;transition:color .2s}
+.hvcx .ftr a:hover{color:var(--gold-hi)}
+.hvcx .ftr .brand{font-family:var(--head);font-weight:800;font-size:1.1rem;color:#fff}
+.hvcx .ftr .brand i{font-style:normal;color:var(--gold)}
+.hvcx .ftr p{margin:10px 0 0;max-width:32ch}
+.hvcx .ftr .addr{display:block;padding:3px 0;line-height:1.55}
+.hvcx .ftr-bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:18px}
+
+/* ============ WA FAB ============ */
+.hvcx .wa-fab{position:fixed;right:24px;bottom:24px;z-index:60;width:56px;height:56px;border-radius:50%;
+  background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:transform .25s var(--ease)}
+.hvcx .wa-fab:hover{transform:scale(1.08)}
+.hvcx .wa-fab svg{width:29px;height:29px;fill:#fff}
+
+/* ============ MOTION ============ */
+@media (prefers-reduced-motion: no-preference){
+  .rise{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .rise.in{opacity:1;transform:none}
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1080px){
+  .nav a{padding:10px 9px;font-size:.88rem}
+}
+@media (max-width: 980px){
+  .nav{display:none}
+  .menu-btn{display:flex}
+  .a-inner{display:block;min-height:0;padding:56px 0 0}
+  .a-copy{max-width:640px}
+  .atlas-map{position:relative;top:auto;right:auto;transform:none;width:100%;margin:38px auto -8px;
+    -webkit-mask-image:linear-gradient(180deg,#000 76%,transparent 100%);mask-image:linear-gradient(180deg,#000 76%,transparent 100%)}
+  .atlas-shade{display:none}
+  .cgrid{grid-template-columns:1fr 1fr}
+  .rsteps{grid-template-columns:1fr;gap:26px;max-width:560px;margin:0 auto}
+  .rsteps::before{left:33px;right:auto;top:16px;bottom:26px;border-top:none;border-left:2px dashed rgba(200,154,61,.4)}
+  .rstep{display:grid;grid-template-columns:68px 1fr;gap:18px;text-align:left;align-items:start;padding:0}
+  .rstep .n{margin:0}
+  .next-in{flex-direction:column;align-items:flex-start}
+  .ftr-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 760px){
+  html,body{overflow-x:hidden;max-width:100vw}
+  .topbar-in{justify-content:center}
+  .topbar .r{display:none}
+  .logo img{height:44px}
+  .hdr .btn{padding:10px 16px;font-size:.84rem}
+  .astats-in{grid-template-columns:1fr 1fr;gap:20px 0;padding:22px 0}
+  .ast{padding:0 20px}
+  .ast:nth-child(odd){border-left:none;padding-left:0}
+  .ast b{font-size:1.45rem}
+}
+@media (max-width: 640px){
+  .wrap{padding:0 16px}
+  .band{padding:56px 0}
+  .cgrid{gap:12px}
+  .cap{padding:18px 15px 16px;border-radius:18px}
+  .cap .ic{width:40px;height:40px;border-radius:12px;margin-bottom:12px}
+  .cap .ic svg{width:20px;height:20px}
+  .cap h3{font-size:.92rem}
+  .cap p{font-size:.78rem}
+  .cap .go{font-size:.78rem}
+  .rstep .n{width:56px;height:56px}
+  .rstep .n svg{width:23px;height:23px}
+  .rsteps::before{left:27px}
+  .next{padding:48px 0}
+  .enq{padding:56px 0}
+  .ftr-grid{grid-template-columns:1fr}
+}
+@media (max-width: 520px){
+  .logo img{height:40px}
+  .a-inner{padding:44px 0 0}
+  .a-legend{gap:8px 16px}
+}
+@media (min-width: 981px){
+  .mnav{display:none}
+}
+.hvcx h1,.hvcx h2,.hvcx h3,.hvcx h4,.hvcx .btn{text-transform:none}
+</style>
+<div class="hvcx">
+<section class="atlas">
+  <div class="atlas-map" aria-hidden="true">
+    <svg id="atlasSvg" viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Dot-matrix world map with export routes sweeping from Jamshedpur, India to importers on every continent">
+      <defs>
+        <pattern id="pd" width="8" height="8" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.5" fill="rgba(157,182,226,.42)"/>
+        </pattern>
+        <pattern id="pg" width="8" height="8" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.5" fill="rgba(227,192,119,.8)"/>
+        </pattern>
+      </defs>
+
+      <!-- faint graticule -->
+      <line class="grat" x1="0" y1="130" x2="1000" y2="130"/>
+      <line class="grat" x1="0" y1="260" x2="1000" y2="260"/>
+      <line class="grat" x1="0" y1="390" x2="1000" y2="390"/>
+      <line class="grat" x1="250" y1="0" x2="250" y2="520"/>
+      <line class="grat" x1="500" y1="0" x2="500" y2="520"/>
+      <line class="grat" x1="750" y1="0" x2="750" y2="520"/>
+
+      <!-- dot-matrix continents -->
+      <g fill="url(#pd)">
+        <!-- North & Central America -->
+        <path d="M42 74 L86 56 L140 44 L196 40 L250 44 L274 56 L306 48 L332 60 L338 92 L322 120 L300 140 L292 160 L280 182 L278 202 L252 196 L236 196 L233 214 L256 224 L270 244 L282 262 L270 262 L252 244 L224 228 L200 218 L186 200 L168 176 L154 150 L136 118 L120 96 L88 90 L58 86 Z"/>
+        <!-- north Atlantic island -->
+        <path d="M352 10 L398 6 L436 18 L442 44 L420 72 L392 86 L368 68 L352 40 Z"/>
+        <!-- South America -->
+        <path d="M292 268 L316 272 L352 290 L388 306 L404 320 L398 352 L376 382 L352 410 L332 440 L322 470 L306 474 L300 444 L306 406 L296 368 L282 332 L278 300 Z"/>
+        <!-- Europe -->
+        <path d="M470 160 L462 140 L478 128 L492 100 L486 84 L508 70 L528 60 L548 74 L560 92 L600 84 L622 98 L614 120 L596 136 L576 150 L556 158 L536 150 L516 158 L500 166 L486 168 Z"/>
+        <!-- British Isles -->
+        <path d="M484 96 L496 90 L502 104 L494 118 L482 112 Z"/>
+        <!-- Africa -->
+        <path d="M478 180 L510 170 L540 170 L570 180 L600 186 L620 198 L640 232 L654 254 L634 260 L614 298 L602 338 L592 372 L574 400 L556 410 L540 394 L536 356 L528 318 L523 278 L500 272 L472 269 L453 243 L452 216 L464 196 Z"/>
+        <!-- Indian Ocean island -->
+        <path d="M626 344 L638 338 L642 362 L630 378 L622 362 Z"/>
+        <!-- Asia (with Arabia and the Indian peninsula) -->
+        <path d="M610 92 L668 66 L730 50 L800 42 L872 44 L934 52 L972 64 L952 92 L918 118 L896 142 L868 152 L846 172 L834 190 L818 214 L800 238 L790 252 L774 244 L762 224 L752 206 L748 222 L714 262 L698 228 L684 206 L664 202 L656 222 L654 244 L626 240 L616 210 L604 182 L596 158 L606 140 L612 118 Z"/>
+        <!-- north Pacific island arc -->
+        <path d="M886 150 L896 162 L890 182 L878 172 L876 156 Z"/>
+        <!-- island arcs -->
+        <path d="M800 290 L830 296 L820 306 L798 300 Z"/>
+        <path d="M846 300 L876 306 L868 316 L842 310 Z"/>
+        <path d="M722 272 L730 268 L732 282 L722 284 Z"/>
+        <!-- southern continent -->
+        <path d="M816 352 L846 332 L876 328 L902 342 L920 366 L922 392 L904 416 L874 420 L846 408 L824 388 L814 368 Z"/>
+        <!-- southwest Pacific islands -->
+        <path d="M950 420 L962 414 L970 432 L956 444 Z"/>
+      </g>
+
+      <!-- origin region, stamped in gold dots -->
+      <path fill="url(#pg)" d="M684 206 L704 172 L724 168 L748 196 L752 206 L748 222 L714 262 L698 228 Z"/>
+
+      <!-- animated export arcs + destination points (stamped by JS) -->
+      <g id="arcs"></g>
+      <g id="dsts"></g>
+
+      <!-- Jamshedpur hub -->
+      <g>
+        <circle cx="740" cy="211" r="15" fill="rgba(227,192,119,.16)"/>
+        <circle class="hub-ring" cx="740" cy="211" r="7.5" fill="none" stroke="#E3C077" stroke-width="1.5"/>
+        <circle cx="740" cy="211" r="4.4" fill="#fff" stroke="#C89A3D" stroke-width="2.6"/>
+        <text class="hub-label" x="756" y="208">JAMSHEDPUR</text>
+        <text class="hub-sub" x="756" y="221">EXPORT HQ · INDIA</text>
+      </g>
+    </svg>
+  </div>
+  <div class="atlas-shade" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="a-inner">
+      <div class="a-copy rise">
+        <span class="kick">Markets We Serve</span>
+        <h1>Wherever you import,<br><b>we ship.</b></h1>
+        <p class="lede">One export desk in <b>Jamshedpur, India</b> — serving importers in <b>25+ countries</b> worldwide. The full 5,355-product catalogue, quoted per consignment, documentation handled, and a desk that answers 24/7 on WhatsApp.</p>
+        <div class="a-ctas">
+          <a class="btn btn-gold" href="https://wa.me/917070292133" target="_blank" rel="noopener">Get a Quote</a>
+          <a class="btn btn-ghost" href="https://hrivika.com/products/">Browse the catalogue</a>
+        </div>
+        <div class="a-legend" aria-hidden="true">
+          <span><i class="lg-hub"></i>Export HQ — Jamshedpur, India</span>
+          <span><i class="lg-arc"></i>Export routes · importers worldwide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<section class="astats">
+  <div class="wrap astats-in">
+    <div class="ast rise"><b><span class="cnt" data-n="25">25</span><i>+</i></b><span>Countries served</span></div>
+    <div class="ast rise"><b><span class="cnt" data-n="5355">5,355</span></b><span>Products · one catalogue</span></div>
+    <div class="ast rise"><b><span class="cnt" data-n="45">45</span><i>+</i></b><span>Years of legacy</span></div>
+    <div class="ast rise"><b>24<i>/</i>7</b><span>Export desk on WhatsApp</span></div>
+  </div>
+</section>
+<!-- WHAT EVERY MARKET GETS -->
+<section class="band caps" id="every-market">
+  <div class="wrap">
+    <div class="band-head rise">
+      <span class="k-eyebrow">What every market gets</span>
+      <h2>No tiers. No regional catalogues. <b>The full desk.</b></h2>
+      <p>Every importer, in every country, gets the same four things — the whole catalogue, a consignment quote, the paperwork, and a desk that answers.</p>
+    </div>
+    <div class="cgrid">
+      <article class="cap rise">
+        <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+        <h3>The full catalogue</h3>
+        <p><b>5,355 products</b> across 4 categories — 777 fully specified pages, open to every market.</p>
+        <a class="go" href="https://hrivika.com/products/">Browse products →</a>
+      </article>
+      <article class="cap rise">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 12 22 2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
+        <h3>A consignment quote</h3>
+        <p>No price lists online. Every enquiry is priced <b>per consignment</b> — your order, your quantities, your port.</p>
+        <a class="go" href="https://wa.me/917070292133?text=Hello%20Hrivika%20Global%2C%20please%20quote%20my%20consignment." target="_blank" rel="noopener">Get a quote →</a>
+      </article>
+      <article class="cap rise">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg></span>
+        <h3>Export documentation</h3>
+        <p>Paperwork <b>handled by the export desk</b>, consignment after consignment — wherever it lands.</p>
+        <a class="go" href="/contact-us/">Talk to the desk →</a>
+      </article>
+      <article class="cap rise">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.7 8.7 0 0 1-3.9-.9L3 20l1-4.9a8.4 8.4 0 1 1 17-3.6Z"/></svg></span>
+        <h3>A 24/7 WhatsApp desk</h3>
+        <p><b>+91 70702 92133</b> answers around the clock — specifications in, consignment quote out.</p>
+        <a class="go" href="https://wa.me/917070292133" target="_blank" rel="noopener">Open WhatsApp →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FROM JAMSHEDPUR TO YOUR PORT -->
+<section class="band route" id="route">
+  <div class="wrap">
+    <div class="band-head rise">
+      <span class="k-eyebrow">From Jamshedpur to your port</span>
+      <h2>Five steps. <b>Any port.</b></h2>
+      <p>The same route runs for every importer, wherever the consignment lands.</p>
+    </div>
+    <div class="rsteps">
+      <div class="rstep rise">
+        <span class="n"><em>1</em><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.7 8.7 0 0 1-3.9-.9L3 20l1-4.9a8.4 8.4 0 1 1 17-3.6Z"/></svg></span>
+        <div><h3>Enquiry</h3><p>Send your product list on WhatsApp — the desk answers 24/7.</p></div>
+      </div>
+      <div class="rstep rise">
+        <span class="n"><em>2</em><svg viewBox="0 0 24 24"><path d="M20.6 13.4 12 22 2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
+        <div><h3>Consignment quote</h3><p>Priced for your order, your quantities and your port.</p></div>
+      </div>
+      <div class="rstep rise">
+        <span class="n"><em>3</em><svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7Z"/><path d="M3 7l9 5 9-5"/><path d="M12 12v10"/></svg></span>
+        <div><h3>Production &amp; QC</h3><p>Your consignment is assembled and checked — mixed containers welcome.</p></div>
+      </div>
+      <div class="rstep rise">
+        <span class="n"><em>4</em><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg></span>
+        <div><h3>Documentation</h3><p>Export papers prepared and handled by the desk.</p></div>
+      </div>
+      <div class="rstep rise">
+        <span class="n"><em>5</em><svg viewBox="0 0 24 24"><path d="M4 15h16l-2.2 4H6.2Z"/><path d="M6 15V9h12v6"/><path d="M12 9V4h4l-1.5 2.5L16 9"/><path d="M2 20c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0"/></svg></span>
+        <div><h3>Sailing</h3><p>Your consignment ships from India to your port.</p></div>
+      </div>
+    </div>
+    <p class="route-note rise">One chat carries the whole journey — <b>enquiry to sailing, quoted per consignment.</b></p>
+  </div>
+</section>
+
+<!-- YOUR MARKET NEXT -->
+<section class="next">
+  <div class="wrap next-in rise">
+    <div>
+      <span class="k">Your market next?</span>
+      <h2>25+ countries served. Yours could be next.</h2>
+      <p>The desk quotes consignments worldwide — tell us what you import and where it lands.</p>
+    </div>
+    <div class="ctas">
+      <a class="btn btn-white" href="https://wa.me/917070292133?text=Hello%20Hrivika%20Global%2C%20I%20would%20like%20a%20consignment%20quote%20for%20my%20market." target="_blank" rel="noopener">Get a Quote</a>
+      <a class="btn btn-ghost" href="https://hrivika.com/products/">Browse 5,355 products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY BAND -->
+<section class="enq">
+  <div class="enq-in rise">
+    <span class="k-eyebrow">Start your consignment</span>
+    <h2>Your port. <b>Our catalogue.</b></h2>
+    <p>Serving importers worldwide from Jamshedpur, India — send your list and get your first consignment quoted today.</p>
+    <div class="ctas">
+      <a class="btn btn-wa" href="https://wa.me/917070292133" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-1.5-.5 11.5 11.5 0 0 1-4.4-3.9c-.3-.5-.8-1.4-.8-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.3.6-.3h.4c.2 0 .3 0 .5.4l.7 1.6c0 .2.1.3 0 .5l-.3.4-.4.4c-.1.1-.2.3-.1.5s.6 1 1.3 1.7c.9.8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>
+        WhatsApp the export desk
+      </a>
+      <a class="btn btn-white" href="https://hrivika.com/products/">Browse the catalogue</a>
+    </div>
+    <small>+91 70702 92133 · 24/7 export desk · No prices online — quoted per consignment</small>
+  </div>
+</section>
+</div>
+<script defer src="https://hrivika.com/products/assets/wp-pages.js?v=2"></script>
+<!-- /wp:html -->
