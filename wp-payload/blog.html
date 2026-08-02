@@ -1,0 +1,209 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2F6D; --navy-deep:#081F49; --blue:#163F85;
+  --gold:#C89A3D; --gold-deep:#A87722; --gold-hi:#E3C077; --gold-wash:rgba(200,154,61,.12);
+  --text:#2E3542; --gray:#6B7280; --pale:#EEF3FA; --bg:#F8F9FC;
+  --border:#E5E7EB; --white:#fff; --wa:#25D366; --wa-deep:#1DA851;
+  --head:"Plus Jakarta Sans",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,sans-serif;
+  --r-pill:100px;
+  --shadow:0 16px 40px -18px rgba(11,47,109,.16);
+  --shadow-lift:0 30px 64px -24px rgba(11,47,109,.32);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+.hvcx *{box-sizing:border-box}
+.hvcx{font-family:var(--body);font-size:16px;line-height:1.65;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.hvcx img{max-width:100%;display:block}
+.hvcx a{color:inherit;text-decoration:none}
+.hvcx button{font-family:var(--body)}
+.hvcx h1, .hvcx h2, .hvcx h3, .hvcx h4{font-family:var(--head);color:var(--navy);margin:0;line-height:1.14}
+.hvcx p{margin:0}
+.hvcx .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.hvcx .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:.94rem;
+  border-radius:var(--r-pill);padding:13px 26px;border:none;cursor:pointer;text-align:center;text-decoration:none;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s,color .2s}
+.hvcx .btn-wa{background:var(--wa);color:#fff}
+.hvcx .btn-wa:hover{background:var(--wa-deep);color:#fff;transform:translateY(-2px)}
+.hvcx .btn-white{background:#fff;color:var(--navy)}
+.hvcx .btn-white:hover{color:var(--navy);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(4,12,30,.45)}
+.hvcx .mast{position:relative;isolation:isolate;overflow:hidden;padding:74px 0 56px;
+  background:radial-gradient(900px 460px at 12% -20%,#fff 0%,var(--pale) 55%,var(--bg) 100%)}
+.hvcx .mast::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:radial-gradient(rgba(11,47,109,.10) 1px,transparent 1px);background-size:22px 22px}
+.hvcx .mast-in{max-width:760px}
+.hvcx .kick{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:.73rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px}
+.hvcx .kick::before{content:"";width:34px;height:2px;background:var(--gold)}
+.hvcx .mast h1{font-size:clamp(2.3rem,5.6vw,4rem);font-weight:800;letter-spacing:-.022em;line-height:1.03}
+.hvcx .mast h1 b{color:var(--gold-deep);font-weight:800}
+.hvcx .mast p{color:var(--gray);font-size:1.06rem;margin:20px 0 0;max-width:56ch}
+.hvcx .mast-meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:26px;font-size:.82rem;color:var(--gray)}
+.hvcx .mast-meta span{display:inline-flex;align-items:center;gap:8px}
+.hvcx .mast-meta i{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;font-style:normal}
+.hvcx .feat-sec{padding:8px 0 4px;background:var(--bg)}
+.hvcx .feat{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:0;background:#fff;
+  border:1px solid var(--border);border-radius:28px;overflow:hidden;box-shadow:var(--shadow);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.hvcx .feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+.hvcx .feat-img{position:relative;overflow:hidden;background:var(--pale);min-height:320px}
+.hvcx .feat-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.hvcx .feat:hover .feat-img img{transform:scale(1.045)}
+.hvcx .feat-tag{position:absolute;top:20px;left:20px;z-index:2;background:var(--navy);color:#fff;font-family:var(--head);
+  font-weight:700;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:var(--r-pill)}
+.hvcx .feat-body{padding:44px 46px;display:flex;flex-direction:column;justify-content:center}
+.hvcx .feat-body h2{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:800;letter-spacing:-.015em}
+.hvcx .feat-body h2 a{background-image:linear-gradient(var(--gold),var(--gold));background-size:0 2px;background-repeat:no-repeat;
+  background-position:0 100%;transition:background-size .45s var(--ease)}
+.hvcx .feat:hover .feat-body h2 a{background-size:100% 2px}
+.hvcx .feat-body p{color:var(--gray);margin:16px 0 0;font-size:.98rem}
+.hvcx .meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:.78rem;color:var(--gray);
+  letter-spacing:.03em;margin-bottom:14px}
+.hvcx .meta .dot{width:4px;height:4px;border-radius:50%;background:var(--border)}
+.hvcx .meta time{font-weight:500}
+.hvcx .go{display:inline-flex;align-items:center;gap:9px;margin-top:26px;font-family:var(--head);font-weight:700;
+  font-size:.92rem;color:var(--gold-deep)}
+.hvcx .go svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .3s var(--ease)}
+.hvcx .feat:hover .go svg, .hvcx .card:hover .go svg{transform:translateX(5px)}
+.hvcx .topics{padding:52px 0 0;background:var(--bg)}
+.hvcx .topics-in{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+.hvcx .t-lab{font-family:var(--head);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-right:6px}
+.hvcx .t-chips{display:flex;flex-wrap:wrap;gap:10px}
+.hvcx .chip{border:1.5px solid var(--border);background:#fff;border-radius:var(--r-pill);padding:9px 20px;font-weight:600;
+  font-size:.87rem;color:var(--text);cursor:pointer;transition:all .22s var(--ease)}
+.hvcx .chip:hover{border-color:var(--gold);color:var(--gold-deep)}
+.hvcx .chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.hvcx .t-count{margin-left:auto;font-size:.8rem;color:var(--gray)}
+.hvcx .grid-sec{padding:34px 0 78px;background:var(--bg)}
+.hvcx .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:30px}
+.hvcx .card{background:#fff;border:1px solid var(--border);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+.hvcx .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift);border-color:transparent}
+.hvcx .card-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--pale);flex:none;display:block}
+.hvcx .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.hvcx .card:hover .card-img img{transform:scale(1.06)}
+.hvcx .card-body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
+.hvcx .card-body h3{font-size:1.18rem;font-weight:700;letter-spacing:-.01em;line-height:1.32}
+.hvcx .card-body h3 a{background-image:linear-gradient(var(--gold),var(--gold));background-size:0 2px;background-repeat:no-repeat;
+  background-position:0 100%;transition:background-size .45s var(--ease)}
+.hvcx .card:hover .card-body h3 a{background-size:100% 2px}
+.hvcx .card-body p{color:var(--gray);font-size:.9rem;margin:12px 0 0;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.hvcx .card .go{margin-top:auto;padding-top:22px;font-size:.86rem}
+.hvcx .cat{display:inline-block;font-family:var(--head);font-weight:700;font-size:.63rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold-deep);background:var(--gold-wash);border:1px solid rgba(200,154,61,.32);
+  border-radius:var(--r-pill);padding:5px 13px}
+.hvcx .empty{grid-column:1/-1;text-align:center;color:var(--gray);padding:56px 20px;font-size:.95rem}
+.hvcx .ask{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding:76px 0;
+  background:linear-gradient(118deg,var(--navy-deep),var(--navy) 55%,var(--blue))}
+.hvcx .ask::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);background-size:20px 20px}
+.hvcx .ask::after{content:"";position:absolute;top:-220px;right:-140px;width:560px;height:560px;border-radius:50%;z-index:-1;
+  background:radial-gradient(circle,rgba(200,154,61,.26) 0%,transparent 62%)}
+.hvcx .ask-in{max-width:720px}
+.hvcx .ask .kick{color:var(--gold-hi)}
+.hvcx .ask h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.015em}
+.hvcx .ask h2 b{color:var(--gold-hi)}
+.hvcx .ask p{color:#C7D3EC;margin:16px 0 28px;max-width:52ch}
+.hvcx .ask-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hvcx .ask-ctas .btn svg{width:18px;height:18px;fill:currentColor;flex:none}
+html.js .hvcx .rise{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+html.js .hvcx .rise.in{opacity:1;transform:none}
+html.js .hvcx .rise.d1{transition-delay:.08s}
+html.js .hvcx .rise.d2{transition-delay:.16s}
+html.js .hvcx .rise.d3{transition-delay:.24s}
+@media (max-width:860px){.hvcx .feat{grid-template-columns:1fr}
+.hvcx .feat-img{min-height:auto;aspect-ratio:16/10}
+.hvcx .feat-body{padding:32px 28px 36px}
+.hvcx .mast{padding:56px 0 44px}}
+@media (max-width:640px){.hvcx .grid{grid-template-columns:1fr;gap:24px}
+.hvcx .t-count{width:100%;margin-left:0;padding-top:4px}}
+@media (prefers-reduced-motion:reduce){html.js .hvcx .rise{opacity:1;transform:none;transition:none}}
+.hvcx h1,.hvcx h2,.hvcx h3,.hvcx h4,.hvcx .btn{text-transform:none}
+</style>
+
+<div class="hvcx">
+
+<!-- ============ MASTHEAD ============ -->
+<section class="mast">
+  <div class="wrap mast-in">
+    <span class="kick rise">Insights</span>
+    <h1 class="rise d1">Notes from the<br><b>export desk.</b></h1>
+    <p class="rise d2">Specification, materials and shipping — written by the people who quote your consignments, not by a marketing department.</p>
+    <div class="mast-meta rise d3">
+      <span><i></i>Written in India</span>
+      <span><i></i>No sales pitches</span>
+      <span><i></i>Questions answered on WhatsApp</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED ============ -->
+<section class="feat-sec"><div class="wrap">
+  <article class="feat rise" id="hvFeatured">
+    <div class="feat-img">
+      <span class="feat-tag">Latest</span>
+      <img src="https://hrivika.com/wp-content/uploads/2026/07/3-1024x683.png" alt="">
+    </div>
+    <div class="feat-body">
+      <div class="meta"><span class="cat">Blog</span><span class="dot"></span><time datetime="2026-07-15">15 Jul 2026</time><span class="dot"></span><span>1 min read</span></div>
+      <h2><a href="https://hrivika.com/why-indian-building-materials-are-trusted-across-global-markets/">Why Indian Building Materials Are Trusted Across Global Markets</a></h2>
+      <p>India has become one of the world's leading suppliers of construction materials, serving infrastructure, commercial and residential projects across continents.</p>
+      <a class="go" href="https://hrivika.com/why-indian-building-materials-are-trusted-across-global-markets/">Read the article <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </article>
+</div></section>
+
+<!-- ============ TOPICS ============ -->
+<section class="topics"><div class="wrap topics-in rise">
+  <span class="t-lab">Topics</span>
+  <div class="t-chips" id="hvChips">
+    <button class="chip on" type="button" data-t="*">All articles</button>
+  </div>
+  <span class="t-count" id="hvCount">3 articles</span>
+</div></section>
+
+<!-- ============ GRID ============ -->
+<section class="grid-sec"><div class="wrap">
+  <div class="grid" id="hvGrid">
+    <article class="card rise" data-cat="Blog">
+      <a class="card-img" href="https://hrivika.com/understanding-upvc-cpvc-pvc-pipes-which-one-is-right-for-your-project/" tabindex="-1" aria-hidden="true"><img src="https://hrivika.com/wp-content/uploads/2026/07/2-768x512.png" alt="" loading="lazy"></a>
+      <div class="card-body">
+        <div class="meta"><span class="cat">Blog</span><span class="dot"></span><time datetime="2026-07-15">15 Jul 2026</time><span class="dot"></span><span>1 min read</span></div>
+        <h3><a href="https://hrivika.com/understanding-upvc-cpvc-pvc-pipes-which-one-is-right-for-your-project/">Understanding uPVC, CPVC &amp; PVC Pipes: Which One Is Right for Your Project?</a></h3>
+        <p>Piping systems play a crucial role in residential, commercial, industrial and infrastructure projects. Choosing the appropriate pipe material decides how long the job lasts.</p>
+        <span class="go">Read the article <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </article>
+    <article class="card rise d1" data-cat="Blog">
+      <a class="card-img" href="https://hrivika.com/why-choosing-the-right-building-material-export-partner-matters/" tabindex="-1" aria-hidden="true"><img src="https://hrivika.com/wp-content/uploads/2026/07/3-768x512.png" alt="" loading="lazy"></a>
+      <div class="card-body">
+        <div class="meta"><span class="cat">Blog</span><span class="dot"></span><time datetime="2026-07-15">15 Jul 2026</time><span class="dot"></span><span>1 min read</span></div>
+        <h3><a href="https://hrivika.com/why-choosing-the-right-building-material-export-partner-matters/">Why Choosing the Right Building Material Export Partner Matters</a></h3>
+        <p>In today's competitive construction industry, the quality of building materials directly impacts the durability, safety and success of every project.</p>
+        <span class="go">Read the article <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<!-- ============ ASK THE DESK ============ -->
+<section class="ask"><div class="wrap ask-in">
+  <span class="kick rise">Still deciding?</span>
+  <h2 class="rise d1">An article can explain a material.<br><b>The desk can quote it.</b></h2>
+  <p class="rise d2">Tell us what your project needs — sizes, pressure class, quantities — and the export desk comes back with a consignment quote. No prices are published online.</p>
+  <div class="ask-ctas rise d3">
+    <a class="btn btn-wa" href="https://wa.me/917070292133" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-1.5-.5 11.5 11.5 0 0 1-4.4-3.9c-.3-.5-.8-1.4-.8-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.3.6-.3h.4c.2 0 .3 0 .5.4l.7 1.6c0 .2.1.3 0 .5l-.3.4-.4.4c-.1.1-.2.3-.1.5s.6 1 1.3 1.7c.9.8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>
+      WhatsApp the export desk
+    </a>
+    <a class="btn btn-white" href="https://hrivika.com/products/">Browse the catalogue</a>
+  </div>
+</div></section>
+
+</div>
+
+<script defer src="https://hrivika.com/products/assets/wp-pages.js?v=2"></script>
+<script defer src="https://hrivika.com/products/assets/blog.js?v=1"></script>
