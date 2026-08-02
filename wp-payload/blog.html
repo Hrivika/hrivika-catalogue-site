@@ -96,6 +96,17 @@
   text-transform:uppercase;color:var(--gold-deep);background:var(--gold-wash);border:1px solid rgba(200,154,61,.32);
   border-radius:var(--r-pill);padding:5px 13px}
 .hvcx .empty{grid-column:1/-1;text-align:center;color:var(--gray);padding:56px 20px;font-size:.95rem}
+.hvcx .none{background:#fff;border:1.5px dashed rgba(200,154,61,.5);border-radius:28px;padding:74px 40px;text-align:center;
+  box-shadow:var(--shadow)}
+.hvcx .none .kick{justify-content:center}
+.hvcx .none h2{font-size:clamp(1.5rem,3vw,2.15rem);font-weight:800;letter-spacing:-.015em}
+.hvcx .none p{color:var(--gray);margin:16px auto 0;max-width:52ch;font-size:1rem}
+.hvcx .none-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+.hvcx .none-ctas .btn svg{width:18px;height:18px;fill:currentColor;flex:none}
+.hvcx .btn-gold{background:var(--gold-deep);color:#fff}
+.hvcx .btn-gold:hover{background:#96691C;color:#fff;transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(168,119,34,.55)}
+.hvcx .btn-line{background:transparent;color:var(--navy);border:1.5px solid var(--border)}
+.hvcx .btn-line:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-2px)}
 .hvcx .ask{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding:76px 0;
   background:linear-gradient(118deg,var(--navy-deep),var(--navy) 55%,var(--blue))}
 .hvcx .ask::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
@@ -141,7 +152,7 @@
 </section>
 
 <!-- ============ FEATURED ============ -->
-<section class="feat-sec"><div class="wrap">
+<section class="feat-sec" id="hvFeatSec" style="display:none"><div class="wrap">
   <article class="feat rise" id="hvFeatured">
     <div class="feat-img">
       <span class="feat-tag">Latest</span>
@@ -157,7 +168,7 @@
 </div></section>
 
 <!-- ============ TOPICS ============ -->
-<section class="topics"><div class="wrap topics-in rise">
+<section class="topics" id="hvTopics" style="display:none"><div class="wrap topics-in rise">
   <span class="t-lab">Topics</span>
   <div class="t-chips" id="hvChips">
     <button class="chip on" type="button" data-t="*">All articles</button>
@@ -167,26 +178,16 @@
 
 <!-- ============ GRID ============ -->
 <section class="grid-sec"><div class="wrap">
-  <div class="grid" id="hvGrid">
-    <article class="card rise" data-cat="Blog">
-      <a class="card-img" href="https://hrivika.com/understanding-upvc-cpvc-pvc-pipes-which-one-is-right-for-your-project/" tabindex="-1" aria-hidden="true"><img src="https://hrivika.com/wp-content/uploads/2026/07/2-768x512.png" alt="" loading="lazy"></a>
-      <div class="card-body">
-        <div class="meta"><span class="cat">Blog</span><span class="dot"></span><time datetime="2026-07-15">15 Jul 2026</time><span class="dot"></span><span>1 min read</span></div>
-        <h3><a href="https://hrivika.com/understanding-upvc-cpvc-pvc-pipes-which-one-is-right-for-your-project/">Understanding uPVC, CPVC &amp; PVC Pipes: Which One Is Right for Your Project?</a></h3>
-        <p>Piping systems play a crucial role in residential, commercial, industrial and infrastructure projects. Choosing the appropriate pipe material decides how long the job lasts.</p>
-        <span class="go">Read the article <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </article>
-    <article class="card rise d1" data-cat="Blog">
-      <a class="card-img" href="https://hrivika.com/why-choosing-the-right-building-material-export-partner-matters/" tabindex="-1" aria-hidden="true"><img src="https://hrivika.com/wp-content/uploads/2026/07/3-768x512.png" alt="" loading="lazy"></a>
-      <div class="card-body">
-        <div class="meta"><span class="cat">Blog</span><span class="dot"></span><time datetime="2026-07-15">15 Jul 2026</time><span class="dot"></span><span>1 min read</span></div>
-        <h3><a href="https://hrivika.com/why-choosing-the-right-building-material-export-partner-matters/">Why Choosing the Right Building Material Export Partner Matters</a></h3>
-        <p>In today's competitive construction industry, the quality of building materials directly impacts the durability, safety and success of every project.</p>
-        <span class="go">Read the article <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </article>
+  <div class="none rise" id="hvEmpty">
+    <span class="kick">Fresh start</span>
+    <h2>The first notes are<br>being written.</h2>
+    <p>New articles from the export desk appear here the moment they're published — materials, specification and how consignments actually ship. Until then, the desk answers questions directly.</p>
+    <div class="none-ctas">
+      <a class="btn btn-gold" href="https://wa.me/917070292133" target="_blank" rel="noopener">Ask the export desk</a>
+      <a class="btn btn-line" href="https://hrivika.com/products/">Browse the catalogue</a>
+    </div>
   </div>
+  <div class="grid" id="hvGrid"></div>
 </div></section>
 
 <!-- ============ ASK THE DESK ============ -->
@@ -206,4 +207,4 @@
 </div>
 
 <script defer src="https://hrivika.com/products/assets/wp-pages.js?v=2"></script>
-<script defer src="https://hrivika.com/products/assets/blog.js?v=1"></script>
+<script defer src="https://hrivika.com/products/assets/blog.js?v=2"></script>
