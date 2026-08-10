@@ -1,0 +1,258 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2F6D; --navy-deep:#081F49; --blue:#163F85;
+  --gold:#C89A3D; --gold-deep:#A87722; --gold-hi:#E3C077; --gold-wash:rgba(200,154,61,.12);
+  --text:#2E3542; --gray:#6B7280; --pale:#EEF3FA; --bg:#F8F9FC;
+  --border:#E5E7EB; --white:#fff; --wa:#25D366; --wa-deep:#1DA851;
+  --head:"Plus Jakarta Sans",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,sans-serif;
+  --r-pill:100px;
+  --shadow:0 16px 40px -18px rgba(11,47,109,.16);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+.hvcx *{box-sizing:border-box}
+.hvcx{font-family:var(--body);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.hvcx img{max-width:100%;display:block}
+.hvcx a{color:inherit;text-decoration:none}
+.hvcx h1, .hvcx h2, .hvcx h3, .hvcx h4{font-family:var(--head);color:var(--navy);margin:0;line-height:1.18}
+.hvcx p{margin:0}
+.hvcx .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.hvcx .lg-head{position:relative;isolation:isolate;overflow:hidden;padding:64px 0 56px;color:#fff;
+  background:linear-gradient(118deg,var(--navy-deep),var(--navy) 58%,var(--blue))}
+.hvcx .lg-head::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.45;
+  background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);background-size:20px 20px}
+.hvcx .lg-head::after{content:"";position:absolute;top:-230px;right:-150px;width:560px;height:560px;border-radius:50%;z-index:-1;
+  background:radial-gradient(circle,rgba(200,154,61,.26) 0%,transparent 62%)}
+.hvcx .kick{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:18px}
+.hvcx .kick::before{content:"";width:34px;height:2px;background:var(--gold)}
+.hvcx .lg-head h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+.hvcx .lg-head h1 b{color:var(--gold-hi);font-weight:800}
+.hvcx .lg-sub{color:#C7D3EC;margin:18px 0 0;max-width:62ch;font-size:1.03rem}
+.hvcx .lg-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hvcx .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(227,192,119,.4);background:rgba(255,255,255,.06);
+  border-radius:var(--r-pill);padding:8px 18px;font-size:.82rem;color:#E7EEFB}
+.hvcx .pill b{color:var(--gold-hi);font-weight:600}
+.hvcx .lg-body{padding:56px 0 84px;background:var(--bg)}
+.hvcx .lg-grid{display:grid;grid-template-columns:198px minmax(0,1fr);gap:44px;align-items:start}
+.hvcx .toc{position:sticky;top:110px}
+.hvcx .toc-lab{font-family:var(--head);font-weight:700;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--navy);padding-bottom:12px;border-bottom:2px solid var(--gold);margin-bottom:14px}
+.hvcx .toc a{display:block;padding:7px 0;font-size:.9rem;color:var(--gray);border-left:2px solid transparent;padding-left:12px;
+  transition:color .2s,border-color .2s}
+.hvcx .toc a:hover{color:var(--gold-deep);border-color:var(--gold)}
+.hvcx .doc{background:#fff;border:1px solid var(--border);border-radius:24px;padding:48px 46px;box-shadow:var(--shadow)}
+.hvcx .doc h2{font-size:1.4rem;font-weight:800;letter-spacing:-.012em;margin:44px 0 14px;scroll-margin-top:120px}
+.hvcx .doc h2:first-of-type{margin-top:0}
+.hvcx .doc h2 .n{color:var(--gold-deep);font-size:.86rem;letter-spacing:.1em;display:block;margin-bottom:6px;font-weight:700}
+.hvcx .doc p{margin:0 0 14px}
+.hvcx .doc p:last-child{margin-bottom:0}
+.hvcx .doc strong{color:var(--navy);font-weight:600}
+.hvcx .doc a.lnk{color:var(--gold-deep);font-weight:600;border-bottom:1px solid rgba(200,154,61,.45)}
+.hvcx .doc a.lnk:hover{border-color:var(--gold-deep)}
+.hvcx .rule{height:1px;background:var(--border);margin:38px 0 0}
+.hvcx .lead{background:var(--pale);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:22px 26px;margin:0 0 30px}
+.hvcx .lead p{margin:0;color:var(--navy);font-size:1.02rem}
+.hvcx .list{list-style:none;margin:6px 0 0;padding:0}
+.hvcx .list li{position:relative;padding:9px 0 9px 30px;border-bottom:1px solid var(--bg)}
+.hvcx .list li:last-child{border-bottom:none}
+.hvcx .list li::before{content:"";position:absolute;left:6px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.hvcx .list b{color:var(--navy);font-weight:600}
+.hvcx .no-list{list-style:none;margin:6px 0 0;padding:0}
+.hvcx .no-list li{position:relative;padding:10px 0 10px 34px;font-size:.98rem}
+.hvcx .no-list li::before{content:"✕";position:absolute;left:4px;top:9px;color:var(--gold-deep);font-weight:700;font-size:.85rem}
+.hvcx .ol{counter-reset:s;list-style:none;margin:6px 0 0;padding:0}
+.hvcx .ol li{counter-increment:s;position:relative;padding:9px 0 9px 40px}
+.hvcx .ol li::before{content:counter(s);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:50%;
+  background:var(--gold-wash);border:1px solid rgba(200,154,61,.35);color:var(--gold-deep);
+  font-family:var(--head);font-weight:700;font-size:.75rem;display:flex;align-items:center;justify-content:center}
+.hvcx .dt-wrap{overflow-x:auto;margin:8px 0 0;border:1px solid var(--border);border-radius:18px}
+.hvcx .dt{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px;table-layout:fixed}
+.hvcx .dt th{background:var(--navy);color:#fff;font-family:var(--head);font-weight:700;font-size:.68rem;letter-spacing:.14em;
+  text-transform:uppercase;text-align:left;padding:14px 18px}
+.hvcx .dt td{padding:15px 16px;border-top:1px solid var(--border);vertical-align:top;line-height:1.6}
+.hvcx .dt tbody tr:nth-child(odd) td{background:#FCFDFF}
+.hvcx .dt td:first-child{color:var(--navy);font-weight:600;width:33%}
+.hvcx .dt td:last-child{color:var(--gray);width:23%}
+.hvcx .note{display:flex;gap:16px;align-items:flex-start;background:var(--gold-wash);border:1px solid rgba(200,154,61,.3);
+  border-radius:18px;padding:20px 24px;margin:24px 0 0}
+.hvcx .note i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-deep);color:#fff;font-style:normal;
+  font-family:var(--head);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.hvcx .note p{margin:0;color:var(--navy);font-size:.96rem}
+.hvcx .cta{margin-top:38px;background:linear-gradient(118deg,var(--navy-deep),var(--navy) 60%,var(--blue));color:#fff;
+  border-radius:22px;padding:38px 42px}
+.hvcx .cta h3{color:#fff;font-size:1.2rem;font-weight:800;margin-bottom:10px}
+.hvcx .cta p{color:#C7D3EC;margin:0 0 20px;max-width:52ch}
+.hvcx .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--head);font-weight:600;font-size:.92rem;
+  border-radius:var(--r-pill);padding:13px 26px;border:none;cursor:pointer;text-decoration:none;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s,color .2s}
+.hvcx .btn-white{background:#fff;color:var(--navy)}
+.hvcx .btn-white:hover{color:var(--navy);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(4,12,30,.45)}
+.hvcx .appref{margin-top:30px;padding-top:22px;border-top:1px solid var(--border);color:var(--gray);font-size:.88rem}
+.hvcx .appref code{background:var(--pale);border-radius:6px;padding:2px 8px;font-size:.86rem;color:var(--navy)}
+@media (max-width:980px){.hvcx .lg-grid{grid-template-columns:1fr;gap:32px}
+.hvcx .toc{position:static;display:flex;flex-wrap:wrap;gap:8px}
+.hvcx .toc-lab{width:100%;margin-bottom:6px}
+.hvcx .toc a{border:1px solid var(--border);border-radius:100px;padding:8px 16px;background:#fff;font-size:.84rem}
+.hvcx .doc{padding:36px 28px}}
+@media (max-width:760px){.hvcx .dt{min-width:0}
+.hvcx .dt thead{display:none}
+.hvcx .dt, .hvcx .dt tbody, .hvcx .dt tr, .hvcx .dt td{display:block;width:100%}
+.hvcx .dt tr{border-top:1px solid var(--border);padding:8px 4px}
+.hvcx .dt tr:first-child{border-top:none}
+.hvcx .dt td{border:none;padding:8px 14px}
+.hvcx .dt tbody tr:nth-child(odd) td{background:transparent}
+.hvcx .dt td:first-child, .hvcx .dt td:last-child{width:auto}
+.hvcx .dt td::before{content:attr(data-l);display:block;font-family:var(--head);font-weight:700;font-size:.64rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:3px}
+.hvcx .cta{padding:30px 24px}}
+.hvcx h1,.hvcx h2,.hvcx h3,.hvcx h4,.hvcx .btn{text-transform:none}
+</style>
+
+<div class="hvcx">
+
+<section class="lg-head"><div class="wrap">
+  <span class="kick">Hrivika Field · Android app</span>
+  <h1>Privacy Policy<br><b>Hrivika Field.</b></h1>
+  <p class="lg-sub">Hrivika Field is a private business application published by Hrivika Global. It is used only by authorised Hrivika Global sales staff to record their own visits to prospective business customers. It is not available to the general public and cannot be used without a Hrivika Global account approved in advance.</p>
+  <div class="lg-meta">
+    <span class="pill"><b>Last updated</b> 2 August 2026</span>
+    <span class="pill"><b>Applies to</b> com.hrivika.field</span>
+    <span class="pill"><b>No ads</b> · No tracking SDKs</span>
+  </div>
+</div></section>
+
+<section class="lg-body"><div class="wrap lg-grid">
+
+  <aside class="toc">
+    <div class="toc-lab">On this page</div>
+    <a href="#who">Who this policy is for</a>
+    <a href="#collect">What the app collects</a>
+    <a href="#doesnot">What the app does not do</a>
+    <a href="#storage">Where the data is stored</a>
+    <a href="#third">Third-party services</a>
+    <a href="#retention">Retention</a>
+    <a href="#rights">Your rights</a>
+    <a href="#permissions">Permissions</a>
+    <a href="#contact">Contact</a>
+  </aside>
+
+  <div class="doc">
+
+    <div class="lead"><p>Hrivika Field is a workplace tool, not a consumer app. It contains no advertising, no analytics or tracking SDKs, and no data is sold or shared with third parties.</p></div>
+
+    <h2 id="who"><span class="n">01</span>Who this policy is for</h2>
+    <p>This policy covers two groups:</p>
+    <ol class="ol">
+      <li><b>Our staff</b> who use the app.</li>
+      <li><b>The businesses they visit</b> — company contact details recorded during a sales visit.</li>
+    </ol>
+
+    <div class="rule"></div>
+
+    <h2 id="collect"><span class="n">02</span>What the app collects</h2>
+    <p>The app collects the following, and only while a member of staff is actively using it:</p>
+    <div class="dt-wrap">
+      <table class="dt">
+        <thead><tr><th>Data</th><th>Why</th><th>Where it goes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-l="Data">Account details (name, email of the signed-in staff member)</td>
+            <td data-l="Why">To confirm the user is an approved Hrivika Global employee and to attribute each visit to the person who recorded it</td>
+            <td data-l="Where it goes">Hrivika Global's Google Workspace</td>
+          </tr>
+          <tr>
+            <td data-l="Data">Business contact information (company name, contact person, phone number, WhatsApp number, email address, designation, business address)</td>
+            <td data-l="Why">This is the purpose of the app — recording prospective business customers</td>
+            <td data-l="Where it goes">Hrivika Global's Google Sheets and Google Drive</td>
+          </tr>
+          <tr>
+            <td data-l="Data">Commercial notes (products of interest, quantities, suppliers, pricing stage, remarks, voice notes)</td>
+            <td data-l="Why">Sales record-keeping</td>
+            <td data-l="Where it goes">Hrivika Global's Google Sheets and Google Drive</td>
+          </tr>
+          <tr>
+            <td data-l="Data">Photographs (a photograph of the staff member at the business premises, photographs of products, photographs of business cards)</td>
+            <td data-l="Why">To verify the visit took place and to record what the business stocks or needs</td>
+            <td data-l="Where it goes">Hrivika Global's Google Drive</td>
+          </tr>
+          <tr>
+            <td data-l="Data">Precise location (GPS coordinates at the time a visit is recorded)</td>
+            <td data-l="Why">To record where the visit took place and to show nearby prospects on a map</td>
+            <td data-l="Where it goes">Hrivika Global's Google Sheets</td>
+          </tr>
+          <tr>
+            <td data-l="Data">Device contacts — only when the user explicitly taps "Save to phone contacts"</td>
+            <td data-l="Why">To save a business contact to the staff member's own phone</td>
+            <td data-l="Where it goes">Written to the phone only; never transmitted</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><i>!</i><p><strong>Location is collected only while the app is open and a visit is being recorded.</strong> The app does not track location in the background, and does not collect location when it is closed.</p></div>
+
+    <div class="rule"></div>
+
+    <h2 id="doesnot"><span class="n">03</span>What the app does not do</h2>
+    <ul class="no-list">
+      <li>It contains <strong>no advertising</strong> and no advertising identifiers.</li>
+      <li>It contains <strong>no analytics or tracking SDKs</strong>.</li>
+      <li>It does <strong>not</strong> sell or share any data with third parties for advertising, marketing, or any other commercial purpose.</li>
+      <li>It does <strong>not</strong> collect data from children. It is a workplace tool for employed adults.</li>
+    </ul>
+
+    <div class="rule"></div>
+
+    <h2 id="storage"><span class="n">04</span>Where the data is stored</h2>
+    <p>All recorded data is stored in Hrivika Global's own Google Workspace account — Google Sheets for the records and Google Drive for photographs and voice notes. Access is restricted to authorised Hrivika Global staff.</p>
+    <p>Data is transmitted over encrypted HTTPS connections. Visits are held on the staff member's phone until the phone has an internet connection, then uploaded automatically; photographs are removed from the phone approximately seven days after they are uploaded.</p>
+
+    <div class="rule"></div>
+
+    <h2 id="third"><span class="n">05</span>Third-party services</h2>
+    <ul class="list">
+      <li><b>Google Sign-In</b> — to verify the staff member's identity.</li>
+      <li><b>Google Sheets, Google Drive and Google Cloud Functions</b> — to store and receive the records.</li>
+      <li><b>Google Maps</b> — to display prospect locations on a map.</li>
+    </ul>
+    <p style="margin-top:14px">These are all Google services governed by <a class="lnk" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+
+    <div class="rule"></div>
+
+    <h2 id="retention"><span class="n">06</span>Retention</h2>
+    <p>Visit records are retained for as long as Hrivika Global maintains a commercial relationship or prospect record with the business concerned, in line with normal business record-keeping.</p>
+
+    <div class="rule"></div>
+
+    <h2 id="rights"><span class="n">07</span>Your rights</h2>
+    <p>If you are a business we have visited and you would like to know what we hold about your company, or would like it corrected or deleted, contact us at the address below and we will action the request.</p>
+    <p>Staff members may request deletion of their account by contacting their manager.</p>
+
+    <div class="rule"></div>
+
+    <h2 id="permissions"><span class="n">08</span>Permissions the app asks for, and why</h2>
+    <ul class="list">
+      <li><b>Camera</b> — to take the premises photograph, product photographs, and to photograph a business card.</li>
+      <li><b>Location</b> — to record where a visit took place, and to show nearby prospects. Foreground only.</li>
+      <li><b>Microphone</b> — to record an optional short spoken note about a visit.</li>
+      <li><b>Photos</b> — to attach an existing photograph to a visit.</li>
+      <li><b>Contacts</b> — only when the user chooses to save a business contact to their own phone.</li>
+      <li><b>Notifications</b> — to remind the staff member of a follow-up or a planned visit.</li>
+    </ul>
+    <p style="margin-top:14px">Every one of these is requested at the moment it is needed, and the app remains usable if a permission is declined.</p>
+
+    <div class="cta" id="contact">
+      <h3>Contact</h3>
+      <p>Questions about this policy, or a request about data we hold on your business — write to the export desk and we will action it.</p>
+      <a class="btn btn-white" href="mailto:founder@hrivika.com">founder@hrivika.com</a>
+    </div>
+
+    <p class="appref">This policy applies to the Android application <strong>Hrivika Field</strong>, package name <code>com.hrivika.field</code>, published by Hrivika Global.</p>
+
+  </div>
+</div></section>
+
+</div>
