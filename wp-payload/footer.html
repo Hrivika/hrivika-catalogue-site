@@ -1,0 +1,147 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --hv-navy:#0B2F6D; --hv-navy-deep:#081F49; --hv-ink:#051530;
+  --hv-gold:#C89A3D; --hv-gold-deep:#A87722; --hv-gold-hi:#E3C077;
+  --hv-navy-t:#2E3542; --hv-gray:#6B7280; --hv-border:#E5E7EB;
+  --hv-wa:#25D366; --hv-wa-deep:#1DA851;
+  --hv-head:"Plus Jakarta Sans",system-ui,sans-serif;
+  --hv-body:"DM Sans",system-ui,sans-serif;
+  --hv-ease:cubic-bezier(.22,.61,.36,1);
+}
+.hvfx{position:relative;isolation:isolate;color:#B7C5E2;font-family:var(--hv-body);font-size:16px;line-height:1.7;
+  padding-top:1px;margin:0;
+  background:radial-gradient(620px 620px at 104% -10%,rgba(200,154,61,.22) 0%,transparent 62%),
+             linear-gradient(155deg,var(--hv-navy-deep),#0A2A61 55%,var(--hv-ink))}
+.hvfx::before{content:"";position:absolute;inset:0;z-index:-2;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.075) 1px,transparent 1px);background-size:22px 22px}
+.hvfx *{box-sizing:border-box}
+.hvfx a{color:inherit;text-decoration:none}
+.hvfx h3, .hvfx h4{font-family:var(--hv-head);margin:0;line-height:1.15}
+.hvfx p{margin:0}
+.hvfx img{max-width:100%;display:block}
+.hvfx .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+.hvfx .card{margin-top:-64px;background:#fff;border-radius:26px;padding:8px;
+  box-shadow:0 40px 90px -40px rgba(4,14,38,.6);position:relative;z-index:2}
+.hvfx .card-in{border:1px solid var(--hv-border);border-radius:20px;display:grid;grid-template-columns:1.25fr 1fr 1fr;overflow:hidden}
+.hvfx .cc{padding:30px 32px;border-right:1px solid var(--hv-border);display:flex;flex-direction:column;justify-content:center}
+.hvfx .cc:last-child{border-right:none}
+.hvfx .cc .lab{font-family:var(--hv-head);font-weight:700;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--hv-gold-deep);margin-bottom:10px;display:flex;align-items:center;gap:9px;line-height:1.4}
+.hvfx .cc .lab svg{width:15px;height:15px;stroke:var(--hv-gold-deep);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hvfx .cc h3{color:var(--hv-navy);font-size:1.16rem;font-weight:800;letter-spacing:-.01em}
+.hvfx .cc p, .hvfx .cc a.t{display:block;color:var(--hv-gray);font-size:.92rem;line-height:1.7;margin-top:6px}
+.hvfx .cc a.t:hover{color:var(--hv-gold-deep)}
+.hvfx .cc .wa{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin-top:14px;background:var(--hv-wa);color:#fff;
+  font-family:var(--hv-head);font-weight:600;font-size:.9rem;border-radius:100px;padding:12px 22px;width:fit-content;
+  box-shadow:0 14px 30px -14px rgba(37,211,102,.7);transition:background .2s,transform .25s var(--hv-ease)}
+.hvfx .cc .wa svg{width:17px;height:17px;fill:#fff;stroke:none;flex:none}
+.hvfx .cc .wa:hover{background:var(--hv-wa-deep);color:#fff;transform:translateY(-2px)}
+.hvfx .belt{display:grid;grid-template-columns:1.4fr .9fr 1.05fr .9fr;gap:42px;padding-top:54px;padding-bottom:46px}
+.hvfx .bl .plate{background:#fff;border-radius:16px;padding:14px 20px;display:inline-block}
+.hvfx .bl .plate img{height:78px;width:auto}
+.hvfx .bl p{margin:22px 0 0;font-size:.93rem;line-height:1.75;max-width:32ch;color:#A9B8D6}
+.hvfx .social{display:inline-flex;align-items:center;gap:10px;margin-top:20px;border:1px solid rgba(255,255,255,.16);
+  border-radius:100px;padding:9px 18px 9px 12px;font-size:.86rem;color:#DCE6F8;
+  transition:border-color .25s,background .25s,transform .25s var(--hv-ease)}
+.hvfx .social svg{width:17px;height:17px;fill:var(--hv-gold-hi);flex:none}
+.hvfx .social:hover{border-color:var(--hv-gold);background:rgba(200,154,61,.12);color:#fff;transform:translateY(-2px)}
+.hvfx .ch{font-family:var(--hv-head);color:#fff;font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  margin:6px 0 18px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.12);position:relative}
+.hvfx .ch::after{content:"";position:absolute;left:0;bottom:-1px;width:30px;height:2px;background:var(--hv-gold)}
+.hvfx .lnk{display:block;padding:8px 0;font-size:.92rem;color:#B7C5E2;width:fit-content;
+  background-image:linear-gradient(var(--hv-gold-hi),var(--hv-gold-hi));background-size:0 1px;background-repeat:no-repeat;
+  background-position:0 100%;transition:background-size .35s var(--hv-ease),color .22s}
+.hvfx .lnk:hover{color:#fff;background-size:100% 1px}
+.hvfx .lnk i{font-style:normal;color:var(--hv-gold-hi);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid rgba(200,154,61,.4);border-radius:100px;padding:2px 8px;margin-left:8px;vertical-align:2px}
+.hvfx .base{border-top:1px solid rgba(255,255,255,.09);padding-top:20px;padding-bottom:26px;display:flex;flex-wrap:wrap;gap:12px;
+  justify-content:space-between;align-items:center;font-size:.81rem;color:#8FA1C4}
+.hvfx .base a{color:#B7C5E2;transition:color .2s}
+.hvfx .base a:hover{color:var(--hv-gold-hi)}
+.hvfx .base .q{display:inline-flex;align-items:center;gap:8px;color:#A9B8D6}
+.hvfx .base .q i{width:5px;height:5px;border-radius:50%;background:var(--hv-gold);font-style:normal}
+@media (max-width:1080px){.hvfx .card-in{grid-template-columns:1fr}
+.hvfx .cc{border-right:none;border-bottom:1px solid var(--hv-border)}
+.hvfx .cc:last-child{border-bottom:none}
+.hvfx .belt{grid-template-columns:1fr 1fr;gap:34px}}
+@media (max-width:620px){.hvfx .card{margin-top:-52px;border-radius:20px}
+.hvfx .bl .plate img{height:62px}
+.hvfx .belt{grid-template-columns:1fr;gap:30px;padding-top:42px;padding-bottom:36px}
+.hvfx .base{flex-direction:column;align-items:flex-start;gap:8px}}
+.hvfx h1,.hvfx h2,.hvfx h3,.hvfx h4,.hvfx .btn{text-transform:none}
+</style>
+
+<div class="hvfx">
+  <div class="wrap">
+
+    <div class="card"><div class="card-in">
+      <div class="cc">
+        <div class="lab"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>Talk to the export desk</div>
+        <h3>Send your list. Get a quote.</h3>
+        <p>Sizes, pressure class, quantities — the desk replies with a consignment price.</p>
+        <a class="wa" href="https://wa.me/917070292133" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-1.5-.5 11.5 11.5 0 0 1-4.4-3.9c-.3-.5-.8-1.4-.8-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.3.6-.3h.4c.2 0 .3 0 .5.4l.7 1.6c0 .2.1.3 0 .5l-.3.4-.4.4c-.1.1-.2.3-.1.5s.6 1 1.3 1.7c.9.8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>
+          +91 70702 92133
+        </a>
+      </div>
+      <div class="cc">
+        <div class="lab"><svg viewBox="0 0 24 24"><path d="M3 7l9 6 9-6M3 6h18v12H3z"/></svg>Email</div>
+        <h3>Write to us</h3>
+        <a class="t" href="mailto:founder@hrivika.com">founder@hrivika.com</a>
+        <a class="t" href="mailto:sales@hrivika.com">sales@hrivika.com</a>
+      </div>
+      <div class="cc">
+        <div class="lab"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Registered office</div>
+        <h3>India</h3>
+        <a class="t" href="https://maps.google.com/?q=Sonari+Jamshedpur" target="_blank" rel="noopener">Hrivika Global Private Limited<br>C173 a, B Block, Sonari — East Singhbhum<br>Jamshedpur, Jharkhand 831011</a>
+      </div>
+    </div></div>
+
+    <div class="belt">
+      <div class="bl">
+        <a class="plate" href="https://hrivika.com/"><img src="https://hrivika.com/wp-content/uploads/2026/07/Hrivika-Global-e1784024581766.png" alt="Hrivika Global"></a>
+        <p>Trusted merchant exporters of premium building materials from India — committed to quality, reliability and long-term partnerships worldwide.</p>
+        <a class="social" href="https://www.linkedin.com/company/116444082/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.25h4.5V24h-4.5Zm7.75 0h4.31v2.15h.06a4.72 4.72 0 0 1 4.25-2.33c4.55 0 5.39 3 5.39 6.86V24h-4.5v-7.98c0-1.9-.03-4.35-2.65-4.35s-3.06 2.07-3.06 4.21V24h-4.5Z"/></svg>
+          Follow on LinkedIn
+        </a>
+      </div>
+
+      <div>
+        <h4 class="ch">Company</h4>
+        <a class="lnk" href="https://hrivika.com/">Home</a>
+        <a class="lnk" href="https://hrivika.com/about-us/">About Us</a>
+        <a class="lnk" href="https://hrivika.com/markets-we-serve/">Markets We Serve</a>
+        <a class="lnk" href="https://hrivika.com/blog/">Blog</a>
+        <a class="lnk" href="https://hrivika.com/contact-us/">Contact Us</a>
+      </div>
+
+      <div>
+        <h4 class="ch">Catalogue</h4>
+        <a class="lnk" href="https://hrivika.com/products/piping-system/">Piping System</a>
+        <a class="lnk" href="https://hrivika.com/products/valves/">Valves</a>
+        <a class="lnk" href="https://hrivika.com/products/hoses-and-suction-pipes/">Hoses &amp; Suction Pipes</a>
+        <a class="lnk" href="https://hrivika.com/products/pvc-products/">PVC Products</a>
+        <a class="lnk" href="https://wa.me/917070292133?text=Hello%20Hrivika%20Global%2C%20please%20quote%20TMT%20Bars.">TMT Bars <i>Quote</i></a>
+        <a class="lnk" href="https://wa.me/917070292133?text=Hello%20Hrivika%20Global%2C%20please%20quote%20Sanitary%20Ware.">Sanitary Ware <i>Quote</i></a>
+      </div>
+
+      <div>
+        <h4 class="ch">More</h4>
+        <a class="lnk" href="https://hrivika.com/products/">Full catalogue</a>
+        <a class="lnk" href="https://hrivika.com/mobileapp/">Mobile App</a>
+        <a class="lnk" href="https://hrivika.com/privacy-policy/">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="base">
+      <span>© 2026 Hrivika Global Private Limited. All rights reserved.</span>
+      <span class="q"><i></i>No prices published — quoted per consignment</span>
+      <span>Design &amp; developed by Webfrontliners</span>
+    </div>
+
+  </div>
+</div>
