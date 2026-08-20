@@ -561,77 +561,35 @@ html.cine .hvcx .stage.night .mline .ct{color:var(--navy)!important}}
 .hvcx h1,.hvcx h2,.hvcx h3,.hvcx h4,.hvcx .btn{text-transform:none}
 
 /* ---- "What happens after you send" (ported from the Console concept) ---- */
-.hvcx .hwq{--ink:#050B18;--dim:#8B9BB6;--dim2:#78889F;--gold:#C89A3D;--goldhi:#E3C077;--line:rgba(214,224,239,.hvcx .11);--line2:rgba(214,224,239,.hvcx .20);--mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--head:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;--pale:#EEF3FA;--wrap:1300px;--pad:clamp(16px,4vw,44px)}
+.hvcx .hwq{--ink:#050B18;--dim:#8B9BB6;--dim2:#78889F;--gold:#C89A3D;--goldhi:#E3C077;--line:rgba(214,224,239,.11);--line2:rgba(214,224,239,.20);--mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--head:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;--pale:#EEF3FA;--wrap:1300px;--pad:clamp(16px,4vw,44px)}
 .hvcx .hwq__wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
 .hvcx .hwq{padding-top:clamp(58px,8vw,110px);padding-bottom:clamp(58px,8vw,110px)}
 .hvcx .hwq--rule{border-top:1px solid var(--line)}
 .hvcx .hwq__hd{display:grid;gap:18px;margin-bottom:clamp(30px,4vw,54px)}
-@media (min-width:960px){
-.hvcx .hwq__hd{grid-template-columns:minmax(0,1.05fr) minmax(0,.hvcx .95fr);align-items:end;gap:44px}
-}
+@media (min-width:960px){.hvcx .hwq__hd{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:end;gap:44px}}
 .hvcx .hwq__hd p{margin:0;color:var(--dim);font-size:clamp(14.5px,1.2vw,16.5px);line-height:1.65;max-width:52ch}
-/* reveal */
-.hvcx .js .hwq__rev.d1.in{transition-delay:.08s}
-.hvcx .js .hwq__rev.d2.in{transition-delay:.16s}
-.hvcx .js .hwq__rev.d3.in{transition-delay:.24s}
-/* no-JS / pre-reveal: bars are already drawn. JS only animates them in. */
-.hvcx .js .hwq__rev .meter__seg{width:0}
-.hvcx .js .hwq__rev.in .meter__seg{width:var(--w)}
-/* ---------- sequence ---------- */
 .hvcx .hwq__grid{display:grid;gap:clamp(30px,4vw,56px)}
-@media (min-width:1000px){
-.hvcx .hwq__grid{grid-template-columns:minmax(0,1fr)}
-}
+@media (min-width:1000px){.hvcx .hwq__grid{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);align-items:start}}
 .hvcx .hwq__seq{position:relative;padding-left:52px}
-@media (max-width:520px){
-.hvcx .hwq__seq{padding-left:38px}
-}
+@media (max-width:520px){.hvcx .hwq__seq{padding-left:38px}}
 .hvcx .hwq__list{list-style:none;margin:0;padding:0}
 .hvcx .hwq__track{position:absolute;left:15px;top:6px;bottom:6px;width:1px;background:var(--line2)}
-@media (max-width:520px){
-.hvcx .hwq__track{left:9px}
-}
-.hvcx .hwq__fill{position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(180deg,var(--goldhi),var(--gold));box-shadow:0 0 14px rgba(200,154,61,.hvcx .55)}
-.hvcx .js .hwq__fill{height:100%}
+@media (max-width:520px){.hvcx .hwq__track{left:9px}}
+.hvcx .hwq__fill{position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(180deg,var(--goldhi),var(--gold));box-shadow:0 0 14px rgba(200,154,61,.55)}
 .hvcx .hwq__step{position:relative;padding:0 0 clamp(24px,3vw,34px)}
 .hvcx .hwq__step:last-child{padding-bottom:0}
 .hvcx .hwq__dot{position:absolute;left:-42px;top:4px;width:11px;height:11px;border-radius:50%;
   background:var(--goldhi);border:1px solid var(--goldhi);
   transition:background-color .35s ease,border-color .35s ease,box-shadow .35s ease,transform .35s ease;}
-@media (max-width:520px){
-.hvcx .hwq__dot{left:-34px}
-}
+@media (max-width:520px){.hvcx .hwq__dot{left:-34px}}
 .hvcx .hwq__n{font-family:var(--mono);font-size:9.5px;letter-spacing:.19em;color:var(--gold);transition:color .35s ease}
 .hvcx .hwq__step h3{font-family:var(--head);font-weight:700;font-size:clamp(17px,1.7vw,21px);letter-spacing:-.02em;
   margin:3px 0 5px;color:var(--pale);transition:color .35s ease;}
 .hvcx .hwq__step p{margin:0;font-size:14px;line-height:1.6;color:var(--dim);max-width:44ch;transition:color .35s ease}
-/* the unlit state exists only when JS is there to light it back up */
-.hvcx .js .hwq__dot{background:var(--ink);border-color:var(--line2)}
-.hvcx .js .hwq__n{color:var(--dim2)}
-.hvcx .js .hwq__step h3{color:var(--dim)}
-.hvcx .js .hwq__step p{color:var(--dim2)}
-.hvcx .js .hwq__step.lit .hwq__dot{background:var(--goldhi);border-color:var(--goldhi);box-shadow:0 0 0 4px rgba(200,154,61,.hvcx .16);transform:scale(1.1)}
-.hvcx .js .hwq__step.lit .hwq__n{color:var(--gold)}
-.hvcx .js .hwq__step.lit h3{color:var(--pale)}
-.hvcx .js .hwq__step.lit p{color:var(--dim)}
-.hvcx .loadbay__hd{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim2);margin-bottom:12px}
-.hvcx .loadbay__hd b{color:var(--goldhi);font-weight:600;font-variant-numeric:tabular-nums;margin-left:auto}
-  padding:10px;border:1px solid var(--line2);border-radius:13px;background:rgba(0,0,0,.3);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
-@media (max-width:400px){
-}
-  border:1px solid rgba(200,154,61,.45);aspect-ratio:1/1;
-  transition:opacity .5s ease,transform .5s cubic-bezier(.2,.75,.2,1),border-color .5s ease;}
-/* dimmed start exists only when JS is present to undim it */
-  font-family:var(--mono);font-size:7.5px;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--pale);background:linear-gradient(180deg,rgba(5,11,24,0),rgba(5,11,24,.92));
-  text-align:center;}
-.hvcx .bay__ft{margin-top:11px;font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim2);text-align:center}
-.hvcx .bay__ft b{color:var(--goldhi);font-weight:600}
-.hvcx .hwq__fill{height:100%}
-
+@media (prefers-reduced-motion: reduce){.hvcx .hwq__dot{transform:none !important}}
 .hvcx .hwq__rev{opacity:1;transform:none}
 .hvcx .hwq__grid{grid-template-columns:minmax(0,1fr)}
+.hvcx .hwq__fill{height:100%}
 </style>
 <div class="hvcx">
 <!-- ======================= HEADER ======================= -->
