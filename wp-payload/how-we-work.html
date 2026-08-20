@@ -593,6 +593,30 @@ html.cine .hvcx .stage.night .mline .ct{color:var(--navy)!important}}
 .hvcx .hwq__rev{opacity:1;transform:none}
 .hvcx .hwq__grid{grid-template-columns:minmax(0,1fr)}
 .hvcx .hwq__fill{height:100%}
+/* step lighting — only active while howwework.js has added .hwq--anim, so the
+   no-JS / reduced-motion / no-IntersectionObserver paths keep the lit defaults */
+.hvcx .hwq--anim .hwq__step{opacity:.34;transition:opacity .55s ease}
+.hvcx .hwq--anim .hwq__step h3{color:#5F6F88;transition:color .55s ease}
+.hvcx .hwq--anim .hwq__step p{color:#4E5D74;transition:color .55s ease}
+.hvcx .hwq--anim .hwq__step .hwq__n{color:#4E5D74;transition:color .55s ease}
+.hvcx .hwq--anim .hwq__step .hwq__dot{background:#22304A;box-shadow:none;
+  transition:background .5s ease,box-shadow .5s ease,transform .5s cubic-bezier(.2,.75,.2,1)}
+.hvcx .hwq--anim .hwq__step.lit{opacity:1}
+.hvcx .hwq--anim .hwq__step.lit h3{color:var(--pale)}
+.hvcx .hwq--anim .hwq__step.lit p{color:var(--dim)}
+.hvcx .hwq--anim .hwq__step.lit .hwq__n{color:var(--gold)}
+.hvcx .hwq--anim .hwq__step.lit .hwq__dot{background:var(--goldhi);
+  box-shadow:0 0 0 5px rgba(200,154,61,.14);transform:scale(1.12)}
+.hvcx .hwq--anim .hwq__fill{transition:height .6s cubic-bezier(.2,.75,.2,1)}
+@media (prefers-reduced-motion:reduce){
+  .hvcx .hwq--anim .hwq__step,
+  .hvcx .hwq--anim .hwq__step h3,
+  .hvcx .hwq--anim .hwq__step p,
+  .hvcx .hwq--anim .hwq__step .hwq__n,
+  .hvcx .hwq--anim .hwq__step .hwq__dot{opacity:1;transition:none}
+  .hvcx .hwq--anim .hwq__fill{height:100%!important;transition:none}
+}
+
 </style>
 <div class="hvcx">
 <!-- ======================= HEADER ======================= -->
@@ -1111,4 +1135,4 @@ html.cine .hvcx .stage.night .mline .ct{color:var(--navy)!important}}
 </main>
 
 <!-- ======================= FOOTER ======================= --></div>
-<script defer src="https://hrivika.com/products/assets/howwework.js?v=1"></script>
+<script defer src="https://hrivika.com/products/assets/howwework.js?v=5"></script>
